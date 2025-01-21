@@ -6,7 +6,7 @@ html,body{
     /* border: 3px solid rgb(255, 196, 0); */
 }
 body {
-    background-image: url(../fon/fon.png);
+    background-image: url(./fon/fon.png);
     /* overflow-x: hidden;
     margin-right: calc(-1 * (100vw – 100%)); */
       
@@ -123,7 +123,7 @@ body {
 }
 
 .modal-content {
-    background-image: url(../fon/fon.png);
+    background-image: url(./fon/fon.png);
     margin: 0; 
     padding: 0;
     padding: 5px;
