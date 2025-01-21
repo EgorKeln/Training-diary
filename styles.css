@@ -6,7 +6,7 @@ html,body{
     /* border: 3px solid rgb(255, 196, 0); */
 }
 body {
-    background-image: url(./fon/fon.png);
+    background-image: url(../fon/fon.png);
     /* overflow-x: hidden;
     margin-right: calc(-1 * (100vw – 100%)); */
       
@@ -123,7 +123,7 @@ body {
 }
 
 .modal-content {
-    background-image: url(./fon/fon.png);
+    background-image: url(../fon/fon.png);
     margin: 0; 
     padding: 0;
     padding: 5px;
@@ -190,7 +190,8 @@ body {
 /* calendar ====================================================== */
 
 .sportContainer1Wrapper,
-.sportContainer2Wrapper {
+.sportContainer2Wrapper,
+.sportContainer4Wrapper {
     /* border: 3px solid rgb(255, 0, 0); */
     display: flex;
     justify-content: center;
@@ -560,20 +561,22 @@ body {
     font-size: 30px;
 }
 #sport-container4 {
+    /* border: 3px solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+#sport-available-programs {
     width: 1150px; 
     height: auto;
     /* border: 3px solid rgb(238, 255, 0); */
     display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-wrap: wrap;
-    /* border-radius: 10px; */
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
-}
-#sport-available-programs {
-    width: 100%; 
-    height: auto;
-    /* border: 3px solid rgb(21, 255, 0); */
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
 }
 .formattedProgramAddProgramAllButtonWrapper {
     /* border: 3px solid rgb(153, 0, 255); */
@@ -786,3 +789,5 @@ body {
 .sportExerciseButton img {
     width: 100%;
 }
+
+
