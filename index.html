@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник тренировок</title>
+    <link rel="stylesheet" href="zero.css">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="BodyWrapper" >
+
+        <div class="BodyWrapperWrap">
+
+            <div class="navbar" >
+
+                    <!-- <div><a href="#" id="sport-calendar">Календарь</a></div> -->
+                    <div>
+                        <a href="#" id="sport-calendar">
+                            <img class="sportCalendarImgOne" src="./img/free-animated-icon-calendar-11614850.png">
+                            <img class="sportCalendarImgTwo" src="./img/free-animated-icon-calendar-11614850.gif">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" id="programs">
+                            <img class="sportCalendarImgOne" src="./img/free-animated-icon-workout-12620413.png">
+                            <img class="sportCalendarImgTwo" src="./img/free-animated-icon-workout-12620413.gif">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" id="exercises">
+                            <img class="sportCalendarImgOne" src="./img/free-animated-icon-weight-12620342.png">
+                            <img class="sportCalendarImgTwo" src="./img/free-animated-icon-weight-12620342.gif">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" id="statistics">
+                            <img class="sportCalendarImgOne" src="./img/free-animated-icon-analytics-15401342.png">
+                            <img class="sportCalendarImgTwo" src="./img/free-animated-icon-analytics-15401342.gif">
+                        </a>
+                    </div>
+                    <!-- <div><a href="#" id="timer">Таймер</a></div> -->
+                    <div><a href="#" id="">v2.8 наследник v14</a></div>
+                
+            </div>
+
+            <div class="bodyContentWrapper">
+                <div class="bodyContent">
+                    <h1>bodyContentWrapper</h1>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<!-- Кнопка Календарь ======================================================== -->
+<!-- Модальное окно с календарем -->
+<div id="sport-calendar-modal" class="modal" >
+    <div class="modal-content" >
+        <div class="sportClose">
+            <!-- <span id="sport-close" class="close">&times;</span> -->
+            <span id="sport-close" class="close">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <div class="sportContainer1Wrapper" >
+            <div id="sport-container1" >
+                <!-- <h2>Календарь</h2> -->
+                <!-- <p id="sport-current-date">Выберите дату</p> -->
+                <div id="calendar"></div>
+                <div id="calendar-navigation">
+                    <button id="prev-month"><img src="./img/Back.gif"></button>
+                    <span id="current-month"></span>
+                    <button id="next-month"><img src="./img/Back.gif"></button>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="sportContainer2Wrapper" >
+            <div id="sport-container2">
+                <h3>Добавленные программы</h3>
+    
+                <div class="sportAdd">
+                    <button id="sport-add-button"><img src="./img/plus.gif"></button>
+                </div>
+                
+                <div id="sport-approaches"></div>
+                
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+<!-- Модальное окно с доступными программами -->
+<div id="sport-calendar-modal2" class="modal">
+    <div class="modal-content">
+
+        <div class="sportClose">
+            <span id="sport-close2" class="close">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <!-- <div class="modalContentH2">
+            <h2>Доступные программы</h2>
+        </div> -->
+        
+        <div id="sport-container4">
+
+            <div class="formattedProgramAddProgramAllButtonWrapper">
+                <button class="formattedProgramAddProgramAllButton" id="sport-add-selected-button">
+                    <div class="formattedProgramAddProgramAllButtonImg formattedProgramAddProgramAllButtonImgActiv">
+                        <img src="./img/plus.gif">
+                    </div>
+                    <div class="formattedProgramAddProgramAllButtonImg">
+                        <img src="./img/Arrow.gif">
+                    </div>
+                    <div class="formattedProgramAddProgramAllButtonImg">
+                        <img src="./img/Menu.gif">
+                    </div>
+                </button>
+            </div>
+            
+            <div id="sport-available-programs"></div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно с упражнениями -->
+<div id="sport-exercise-modal" class="modal">
+    <div class="modal-content">
+        <div class="sportClose">
+            <span id="sport-close-exercise" class="close">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <div class="sportExerciseTitleWrapper">
+            <div class="sportExerciseTitle">
+                <h2 id="sport-exercise-title"></h2> <!-- Упражнения для программы -->
+            </div>
+        </div>
+
+        <div class="sportExerciseListWrapper">
+            <div class="sportExerciseList" id="sport-exercise-list"></div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно с упражнениями -->
+
+<!-- Модальное окно с добавлением подхода -->
+<div id="sport-approach-modal" class="modal">
+    <div class="modal-content">
+        <div class="sportClose">
+            <span id="sport-close-approach" class="close">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <h2 id="sport-approach-title">Добавить подход</h2>
+        <label for="sport-weight"></label>
+        <input type="number" id="sport-weight" min="0" placeholder="Вес">
+        <label for="sport-repetitions"></label>
+        <input type="number" id="sport-repetitions" min="0" placeholder="Повторения">
+        <label for="sport-leadTime"></label>
+        <input type="number" id="sport-leadTime" min="0" placeholder="Время выполнения">
+        <label for="sport-restTime"></label>
+        <input type="number" id="sport-restTime" min="0" placeholder="Время отдыха">
+        <label for="sport-Anote"></label>
+        <input type="text" id="sport-Anote" placeholder="Коментарий">
+        <button id="sport-save-approach">Сохранить</button>
+        <div id="sport-approach-statistics"></div>
+    </div>
+</div> 
+<!-- Кнопка Календарь ======================================================== -->
+
+
+<!-- Всплывающее окно для тренировки
+<div id="workoutModal" class="modal">
+    <div class="modal-content" style="background-color: rgb(235, 118, 72);">
+        <span class="closeWorkoutModal">&times;</span>
+        <h2>Тренировка</h2>
+        <p>Здесь будет информация о тренировке.</p>
+        <button id="closeWorkout">Закрыть</button>
+    </div>
+</div>   -->
+
+
+<!-- Кнопка Программы ======================================================== -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="sportClose">
+            <span class="close" id="closeModal1">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <h2>Список тренировок</h2>
+        <div id="workoutList"></div>
+        <button id="addWorkout">Добавить тренировку</button>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <div class="sportClose">
+            <span class="close" id="closeModal2">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+
+
+        <div>
+            <h2>Добавить тренировку</h2>
+        </div>
+        
+        <div>
+            <h3>Доступные упражнения</h3>
+            <div id="availableExercises"></div>
+            <div id="classesContainer"></div> <!-- Контейнер для отображения списка классов -->
+        </div>
+        
+        
+        
+        
+        
+
+        <div>
+            <input type="text" id="workoutName" placeholder="Название тренировки">
+            <label for="colorPicker">Выберите цвет:</label>
+            <select id="colorPicker">
+                <option value="red">Красный</option>
+                <option value="green">Зеленый</option>
+                <option value="blue">Синий</option>
+                <option value="yellow">Желтый</option>
+                <option value="purple">Фиолетовый</option>
+            </select>
+            <button id="saveWorkout">Сохранить тренировку</button> <!-- Новая кнопка для сохранения -->
+            <div id="currentWorkoutExerciseList"></div>
+        </div>
+        
+
+    </div>
+</div>
+<!-- Кнопка Программы ======================================================== -->
+
+
+<!-- Кнопка Упражнения ======================================================== -->
+<div id="exercisesModal" class="modal">
+    <div class="modal-content">
+        <div class="sportClose">
+            <span class="closeEx">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <h2>Упражнения</h2>
+        <div id="exercise-tabs">
+            <button id="show-exercises">Упражнения</button>
+            <button id="show-classes">Классы</button>
+        </div>
+        <div id="exercise-content">
+            <!-- По умолчанию показываем список упражнений -->
+            <div id="exercise-list">
+                <h3>Список Упражнений</h3>
+                <ul id="exercise-ul"></ul>
+                <button id="add-exercise">Добавить Упражнение</button>
+            </div>
+
+            <div id="class-list" style="display: none;">
+                <h3>Список Классов</h3>
+                <ul id="class-ul"></ul>
+                <button id="add-class">Добавить Класс</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для добавления упражнения -->
+<div id="addExerciseModal" class="modal">
+    <div class="modal-content">
+        <div class="sportClose">
+            <span class="closeAddEx">
+                <img src="./img/login.gif">
+                <span>Выход</span>
+            </span>
+        </div>
+        
+        <h2>Добавить Упражнение</h2>
+        <label for="exercise-title">Название:</label>
+        <input type="text" id="exercise-title" placeholder="Введите название">
+        <label for="exercise-description">Описание:</label>
+        <input type="text" id="exercise-description" placeholder="Введите описание">
+        <label for="exercise-class1">Класс №1:</label>
+        <select id="exercise-class1"></select>
+        <label for="exercise-class2">Класс №2:</label>
+        <select id="exercise-class2"></select>
+        <label for="exercise-color">Цвет:</label>
+        <select id="exercise-color">
+            <option value="rgba(255, 0, 0, 0.5)">Красный</option>
+            <option value="rgba(0, 128, 0, 0.5)">Зеленый</option>
+            <option value="rgba(0, 0, 255, 0.5)">Синий</option>
+            <option value="rgba(255, 255, 0, 0.5)">Желтый</option>
+            <option value="rgba(238, 130, 238, 0.5)">Фиолетовый</option>
+            <option value="rgba(255, 166, 0, 0.5)">Оранжевый</option>
+            <option value="rgba(255, 192, 203, 0.5)">Розовый</option>
+            <!-- <option value="brown">Коричневый</option> -->
+            <option value="rgba(128, 128, 128, 0.5)">Серый</option>
+            <!-- <option value="black">Черный</option> -->
+        </select>
+        <button id="save-exercise">Сохранить</button>
+        <button id="close-add-exercise">Закрыть</button>
+    </div>
+</div>
+
+<!-- Модальное окно для добавления класса -->
+<div id="addClassModal" class="modal">
+    <div class="modal-content">
+        <span class="closeAddClass">
+            <img src="./img/login.gif">
+            <span>Выход</span>
+        </span>
+        <h2>Добавить Класс</h2>
+
+        <button id="add-primary-class">Добавить Первичный Класс</button>
+        <button id="add-secondary-class">Добавить Вторичный Класс</button>
+        <div id="add-primary-modal" style="display: none;">
+            <label for="primary-class-title">Название первичного класса:</label>
+            <input type="text" id="primary-class-title" placeholder="Введите название">
+            <button id="save-primary-class">Сохранить</button>
+            <button id="close-add-primary">Закрыть</button>
+        </div>
+        <div id="add-secondary-modal" style="display: none;">
+            <label for="primary-class-selector">Выберите первичный класс:</label>
+            <select id="primary-class-selector"></select>
+            <label for="secondary-class-title">Название вторичного класса:</label>
+            <input type="text" id="secondary-class-title" placeholder="Введите название">
+            <button id="save-secondary-class">Сохранить</button>
+            <button id="close-add-secondary">Закрыть</button>
+        </div>
+    </div>
+</div>
+<!-- Кнопка Упражнения ======================================================== -->
+
+    <script src="scripts.js"></script>
+    <!-- <script src="test.js"></script> -->
+</body>
+</html>

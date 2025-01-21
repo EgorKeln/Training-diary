@@ -1,0 +1,788 @@
+html,body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    /* border: 3px solid rgb(255, 196, 0); */
+}
+body {
+    background-image: url(./fon/fon.png);
+    /* overflow-x: hidden;
+    margin-right: calc(-1 * (100vw – 100%)); */
+      
+}
+.BodyWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* border: 3px solid rgb(255, 196, 0); */
+    /* margin: 3px; */
+}
+.BodyWrapperWrap {
+    width: 1150px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 3px solid rgb(255, 0, 0); */
+    margin: 3px;
+    
+}
+.bodyContentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid rgb(255, 0, 242); */
+    margin: 3px;
+    width: 100%;
+    height: auto;
+    /* display: none; */
+}
+.bodyContent {
+    /* border: 3px solid rgb(0, 247, 255); */
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    height: auto;
+    /* border: 3px solid rgb(0, 255, 0); */
+    margin: 3px;
+}
+.navbar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid rgb(0, 247, 255); */
+}
+.navbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    text-align: center;
+    /* background-color: #fff; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    text-decoration: none;
+    /* border: 3px solid rgb(153, 0, 255);  */
+    border: 1px solid rgb(255, 255, 255); 
+}
+.navbar .sportCalendarImgOne {
+    width: 64%;
+    background-color: transparent;
+    border-radius: 5px;
+    display: block;
+    /* border: 1px solid rgb(255, 255, 255);  */
+}
+.navbar .sportCalendarImgTwo {
+    width: 90%;
+    background-color: transparent;
+    border-radius: 5px;
+    display: none;
+    
+}
+.navbar a:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.navbar a:hover .sportCalendarImgOne {
+    display: none;
+}
+.navbar a:hover .sportCalendarImgTwo {
+    display: block; 
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    /* background-color: rgba(0,0,0,0.4);  */
+    background-color: #333; 
+}
+
+.modal-content {
+    background-image: url(./fon/fon.png);
+    margin: 0; 
+    padding: 0;
+    padding: 5px;
+    /* border: 3px solid #ff0000; */
+    min-width: 100%; 
+    min-height: 100%; 
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.sportClose {
+    position: sticky;
+    top: 20px;
+    width: 100%;
+    /* border: 3px solid rgb(81, 255, 0); */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.close, .closeEx, .closeAddEx, .closeAddClass {
+    /* display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap; */
+    color: #aaa;
+    width: 80px;
+    height: 80px;
+    /* font-size: 38px;
+    font-weight: bold; */
+    /* width: 10%; */
+    /* border: 3px solid rgb(153, 0, 255); */
+}
+.close img,
+.closeEx img,
+.closeAddEx img,
+.closeAddClass img {
+    position: relative;
+    left: 18px;
+    width: 70%;
+    /* border: 3px solid rgb(153, 0, 255); */
+}
+.close span,
+.closeEx span,
+.closeAddEx span,
+.closeAddClass span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid rgb(153, 0, 255); */
+}
+
+.close:hover, .close:focus,
+.closeEx:hover, .closeEx:focus,
+.closeAddEx:hover, .closeAddEx:focus,
+.closeAddClass:hover, .closeAddClass:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* calendar ====================================================== */
+
+.sportContainer1Wrapper,
+.sportContainer2Wrapper {
+    /* border: 3px solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+#sport-container1 {
+    width: 1150px; 
+    height: 450px;
+    /* border: 3px solid rgb(153, 0, 255); */
+    border: 1px solid rgb(255, 255, 255);
+    margin: 3px;
+    padding: 30px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+#sport-container1:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#calendar-navigation {
+    width: 100%; 
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid rgb(0, 255, 0); */
+    padding: 1px;
+}
+#prev-month {
+    min-width: 80px;
+    width: 10%; 
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* border: 3px solid rgb(153, 0, 255); */
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+    padding: 1px;
+    background-color: transparent;
+}
+#prev-month img {
+    width: 50%;
+}
+#prev-month:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+#current-month {
+    min-width: 180px;
+    width: 20%; 
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 25px;
+    /* border: 3px solid rgb(255, 238, 0); */
+    padding: 1px;
+}
+#next-month {
+    min-width: 80px;
+    width: 10%; 
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* border: 3px solid rgb(153, 0, 255); */
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+    padding: 1px;
+    background-color: transparent;
+}
+#next-month:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+#next-month img {
+    width: 50%;
+    transform: rotate(180deg);
+}
+#calendar {
+    width: 100%;
+    min-height: 330px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    /* border: 3px solid rgb(153, 0, 255); */
+    padding: 1px;
+    margin: 1px;
+}
+
+.day {
+    /* border: 1px solid #c40e0e; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer; /* Курсор указывает на возможность клика */
+    border-radius: 10px;
+}
+
+.today {
+    background-color: #e5ff006c; /* Цвет подсветки для текущего дня */
+    
+}
+
+.hovered {
+    background-color: #00fff256; /* Цвет подсветки для наведения */
+    
+}
+
+.selected {
+    background-color: #74ff0362; /* Цвет подсветки для выбранного дня */
+    
+}
+#sport-container2 {
+    /* border: 3px solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+#sport-container2 h3 {
+    /* width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border: 3px solid rgb(217, 255, 0);
+    padding: 1px;
+    margin: 1px; */
+    display: none;
+}
+#sport-container2 .sportAdd {
+    width: 1150px; 
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid rgb(217, 255, 0); */
+}
+#sport-add-button {
+    /* border: 3px solid rgb(153, 0, 255); */
+    padding: 1px;
+    margin: 1px;
+    background: transparent;
+}
+#sport-add-button img {
+    width: 70%;
+}
+#sport-approaches {
+    min-width: 300px;
+    width: 1150px; 
+    min-height: 315px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 3px solid rgb(0, 204, 255); */
+    margin: 3px;
+}
+.WrapProgramAll {
+    min-width: 300px;
+    width: 100%; 
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    /* border: 3px solid rgb(0, 255, 34); */
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    margin-bottom: 50px;
+}
+.formattedProgramStart:hover,
+.formattedProgramDelet:hover,
+.WrapProgramAll:hover,
+.WrapProgram:hover,
+.WrapProgramExercise:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.buttonStartDeletWrapper {
+    /* border: 3px solid rgb(153, 0, 255); */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-width: 300px;
+    width: 100%;
+    padding: 20px 0 20px 20px;
+}
+.formattedProgramStart,
+.formattedProgramDelet{
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    background: transparent;
+    /* background: #fff; */
+    border-radius: 5px;
+    /* border: 3px solid rgb(153, 0, 255); */
+    border: 1px solid rgb(255, 255, 255);
+    /* margin: 0 20px 20px 10px; */
+    /* padding: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedProgramStart img,
+.formattedProgramDelet img {
+    width: 100%;
+}
+.formattedProgramDateNameColorWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    /* gap: 5px; */
+    /* margin-left: 30px; */
+    /* border: 3px solid rgb(255, 238, 0); */
+    min-width: 285px;
+    width: 100%;
+}
+.formattedProgramDate  {
+    /* width: auto; */
+    padding: 5px;
+    margin: 20px 0 0 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedProgramName {
+    /* width: auto; */
+    padding: 5px;
+    margin: 20px 0 0 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedProgramColor {
+    /* width: auto; */
+    padding: 5px;
+    margin: 20px 0 0 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    display: none;
+}
+.WrapProgram {
+    width: 95%; 
+    min-width: 300px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    /* border: 3px solid rgb(153, 0, 255); */
+    padding: 10px 0 20px 10px;
+    margin: 20px 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    background-color: transparent;
+}
+
+.WrapProgramExercise {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    min-width: 300px;
+    width: 95%; 
+    border-radius: 5px;
+    /* border: 3px solid rgb(21, 255, 0); */
+    border: 1px solid rgb(255, 255, 255);
+    margin: 0 0 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedExerciseTitleWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    min-width: 300px;
+    width: 100%; 
+    /* border: 3px solid rgb(21, 255, 0); */
+}
+.formattedExerciseTitle {
+    /* width: auto; */
+    padding: 5px;
+    margin: 10px 5px 0 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedExerciseDescriptionWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    min-width: 300px;
+    width: 100%; 
+    margin-right: 3px;
+    /* border: 3px solid rgb(21, 255, 0); */
+}
+.formattedExerciseDescription {
+    /* width: auto; */
+    padding: 5px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedExerciseClassWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    min-width: 300px;
+    width: 100%; 
+    /* border: 3px solid rgb(21, 255, 0); */
+}
+.formattedExerciseClass1 {
+    /* width: auto; */
+    padding: 5px;
+    margin: 5px 10px 0 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedExerciseClass2 {
+    /* width: auto; */
+    padding: 5px;
+    margin: 5px 10px 0 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.formattedExerciseColor {
+    display: none;
+    /* color: rgba(255, 0, 0, 0.2);
+    color: rgba(0, 128, 0, 0.2);
+    color: rgba(0, 0, 255, 0.2);
+    color: rgba(255, 255, 0, 0.2);
+    color: rgba(238, 130, 238, 0.2);
+    color: rgba(255, 166, 0, 0.2);
+    color: rgba(255, 192, 203, 0.2);
+    color: rgba(128, 128, 128, 0.2); */
+}
+
+/* calendar ====================================================== */
+
+
+/* модальное окно доступные программы ====================================================== */
+.sportAvailableProgramsNone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.modalContentH2 {
+    /* border: 3px solid rgb(0, 140, 255); */
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalContentH2 h2 {
+    font-size: 30px;
+}
+#sport-container4 {
+    width: 1150px; 
+    height: auto;
+    /* border: 3px solid rgb(238, 255, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    /* border-radius: 10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+}
+#sport-available-programs {
+    width: 100%; 
+    height: auto;
+    /* border: 3px solid rgb(21, 255, 0); */
+}
+.formattedProgramAddProgramAllButtonWrapper {
+    /* border: 3px solid rgb(153, 0, 255); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+.formattedProgramAddProgramAllButton {
+    /* border: 3px solid rgb(153, 0, 255); */
+    border-radius: 5px;
+    background: transparent;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#formattedProgramAddProgram {
+    width: 50px;
+    height: 50px;
+
+    background: transparent;
+    /* background: #fff; */
+    border-radius: 5px;
+    /* border: 3px solid rgb(153, 0, 255); */
+    border: 1px solid rgb(255, 255, 255);
+    margin: 20px 20px 20px 37px;
+    /* padding: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#formattedProgramAddProgram img {
+    /* border: 3px solid rgb(153, 0, 255); */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.formattedProgramAddProgramAllButton {
+    background: transparent;
+    border-radius: 5px;
+    /* border: 3px solid rgb(208, 255, 0); */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formattedProgramAddProgramAllButton div {
+    /* border: 3px solid rgb(0, 255, 34); */
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+.formattedProgramAddProgramAllButtonImgActiv {
+    background-color: lightgreen;
+}
+.formattedProgramAddProgramAllButton div img {
+    width: 100%;
+}
+/* .formattedProgramAddProgrambuttonOne {
+    display: block;
+}
+.formattedProgramAddProgrambuttonOne:active {
+    display: none;
+}
+.formattedProgramAddProgrambuttonTwo:active {
+    display: block;
+} */
+
+.sportExerciseTitleWrapper {
+    /* border: 3px solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.sportExerciseTitle {
+    width: 1150px; 
+    height: auto;
+    /* border: 3px solid rgb(238, 255, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sportExerciseTitle h2 {
+    /* border: 3px solid rgb(238, 255, 0); */
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.sportExerciseListWrapper {
+    /* border: 3px solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.sportExerciseList {
+    width: 1150px; 
+    height: auto;
+    /* border: 3px solid rgb(238, 255, 0); */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.sportExerciseWrap {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row-reverse;
+    min-width: 345px;
+    width: 100%;
+    border-radius: 5px;
+    /* border: 3px solid rgb(0, 0, 0); */
+    border: 1px solid rgb(255, 255, 255);
+    margin: 0 0 20px 0;
+    padding: 5px 0 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.sportExerciseWrap:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.sportExercise {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    width: 90%;
+    /* height: 100%; */
+    /* border: 3px solid rgb(0, 162, 255); */
+    margin: 0 5px 5px 0;
+}
+.sportExerciseExerciseTitleWrap {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+    /* border: 3px solid rgb(255, 238, 0); */
+    min-width: 285px;
+    width: 100%;
+}
+.sportExerciseClassWrap {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+    /* border: 3px solid rgb(255, 238, 0); */
+    min-width: 285px;
+    width: 100%;
+}
+.sportExerciseDescriptionWrap {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+    /* border: 3px solid rgb(255, 238, 0); */
+    min-width: 285px;
+    width: 100%;
+}
+.sportExerciseExerciseTitle {
+    width: auto;
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border: 3px solid rgb(255, 0, 157); */
+}
+.sportExerciseClass1 {
+    width: auto;
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border: 3px solid rgb(255, 0, 157); */
+}
+.sportExerciseClass2 {
+    /* width: auto; */
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border: 3px solid rgb(0, 255, 98); */
+}
+.sportExerciseDescription {
+    /* width: auto; */
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border: 3px solid rgb(0, 255, 21); */
+}
+.sportExerciseButton {
+    /* border: 3px solid rgb(4, 68, 13); */
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    margin: 0 10px 0 10px;
+}
+.sportExerciseButton img {
+    width: 100%;
+}
