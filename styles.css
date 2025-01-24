@@ -136,6 +136,7 @@ button {
 .WrapperContentSportCalendar {
     display: none; 
 }
+
 /* ========================================== КОНЕЦ раздел Календарь ========================================== */
 /* ========================================== КОНЕЦ раздел Календарь ========================================== */
 /* ========================================== КОНЕЦ раздел Календарь ========================================== */
@@ -175,25 +176,38 @@ button {
     top: 0;
     width: 100%; /* Занимает всю ширину */
     height: 100%; /* Занимает всю высоту */
-    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+    /* background-color: rgba(0, 0, 0, 0.7); Затемнение фона */
+    background-image: url(./fon/fon.png);
     /* border:3px solid red; */
 }
 .sportTrainingInfoClassesModalList {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     position: absolute; /* Позиционирование по центру */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Центрируем модальное окно */
-    background-color: white; 
     border-radius: 5px; 
     padding: 0 10px 10px 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-    width: 360px; 
-    height: auto;
+    width: 100%; 
+    height: 100%;
     /* border:3px solid red; */
+}
+.sportTrainingInfoClassesModalContentWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 20%;
+    width: 370px; 
+    height: auto;
+    border-radius: 5px;
+    padding: 0 10px 10px 10px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border:3px solid rgb(255, 238, 0); */
 }
 .modalCloseAddClass {
     display: flex;
@@ -256,7 +270,7 @@ button {
     align-items: start;
     flex-direction: column;
     width: 100%;
-    max-width: 370px;
+    max-width: 365px;
     gap: 10px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -327,11 +341,13 @@ button {
     top: 0;
     width: 100%; /* Занимает всю ширину */
     height: 100%; /* Занимает всю высоту */
-    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+    /* background-color: rgba(0, 0, 0, 0.7); Затемнение фона */
+    background-image: url(./fon/fon.png);
     /* border:3px solid red; */
 }
 
 .sportTrainingInfoExercisesModalList {
+    /* height: 100vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,13 +356,24 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Центрируем модальное окно */
-    background-color: white; 
     border-radius: 5px; 
     padding: 0 10px 10px 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-    width: 360px; 
-    height: auto;
+    width: 100%; 
+    height: 100%;
     /* border:3px solid red; */
+}
+.sportTrainingInfoExercisesModalContentWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px; 
+    height: auto;
+    border-radius: 5px;
+    padding: 0 10px 10px 10px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border:3px solid rgb(255, 238, 0); */
 }
 
 .modalCloseAddExercises {
@@ -447,7 +474,7 @@ button {
     align-items: start;
     flex-direction: column;
     width: 100%;
-    max-width: 370px;
+    max-width: 365px;
     gap: 10px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -537,27 +564,62 @@ button {
     width: 100%; /* Занимает всю ширину */
     height: 100%; /* Занимает всю высоту */
     background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+    /* border: 3px solid red; */
 }
 
 .sportTrainingInfoProgramsModalList {
+    background-image: url(./fon/fon.png);
+    height: 100vh;
     position: absolute; /* Позиционирование по центру */
-    top: 10px;
+    top: 0;
     left: 50%;
     transform: translate(-50%); /* Центрируем модальное окно */
     background-color: white; /* Цвет фона окна */
-    border-radius: 8px; /* Закругленные углы */
+    /* border-radius: 8px; Закругленные углы */
     padding: 15px; /* Отступы */
     margin-bottom: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень */
-    width: 360px; /* Ширина модального окна */
-    min-height: 800px;
-    height: auto;
+    width: 100%;
+    min-width: 360px; /* Ширина модального окна */
+    /* max-height: 800px; */
+    border: 3px solid red;
+
 }
 .modalCloseAddPrograms {
     cursor: pointer; /* Указатель на кнопке закрытия */
     color: #007bff; /* Цвет текста */
     font-weight: bold; /* Жирный текст */
     float: right; /* Сдвигаем вправо */
+}
+#sportTrainingInfoProgramsModalAvailableExercisesListAdd {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 200px;
+    overflow: auto;
+    user-select: none;
+}
+#sportTrainingInfoProgramsModalAvailableExercisesListAdd div {
+    width: 23%;
+    min-width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+#sportTrainingInfoProgramsModalAvailableExercisesAdd {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 200px;
+    overflow: auto;
+    user-select: none;
+}
+#sportTrainingInfoProgramsModalAvailableExercisesAdd div {
+    width: 23%;
+    min-width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 /* ============================ модальное окно добавления программ  */
 

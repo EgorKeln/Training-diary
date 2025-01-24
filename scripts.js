@@ -325,6 +325,7 @@ function updateClassesList() {
 // Отображение модального окна
 sportTrainingInfoClassesButtonAdd.onclick = function() {
     modalAddClass.style.display = 'block';
+    toggleBodyScroll(true);
 };
 
 // Закрытие модального окна
@@ -332,7 +333,12 @@ modalCloseAddClass.onclick = function() {
     modalAddClass.style.display = 'none';
     primaryAddModal.style.display = 'none';
     secondaryAddModal.style.display = 'none';
+    toggleBodyScroll(false);
 };
+
+function toggleBodyScroll(lock) {
+    document.body.style.overflow = lock ? 'hidden' : '';
+  }
 
 // Логика для добавления первичного класса
 primaryAddButton.onclick = function() {
@@ -355,6 +361,7 @@ savePrimaryButton.onclick = function() {
             primaryClassNameInput.value = ''; // Очищаем поле ввода
             updateClassesList();
             modalAddClass.style.display = 'none'; // Закрываем модальное окно
+            toggleBodyScroll(false);
         }
     } else {
         alert("Пожалуйста, введите название первичного класса.");
@@ -389,6 +396,7 @@ saveSecondaryButton.onclick = function() {
         secondaryClassNameInput.value = ''; // Очищаем поле ввода
         updateClassesList();
         modalAddClass.style.display = 'none'; // Закрываем модальное окно
+        toggleBodyScroll(false);
     } else {
         alert("Пожалуйста, выберите первичный класс и введите название вторичного класса.");
     }
@@ -492,13 +500,18 @@ sportTrainingInfoExercisesButtonAdd.onclick = function() {
     populateSecondaryClassSelect(primaryClassSelect.value); // Заполнение вторичных классов по умолчанию
     clearInputFields(); // Очистка полей ввода
     currentExerciseIndex = null; // Сбрасываем текущий индекс упражнения
+    toggleBodyScroll(true);
 };
 
 // Закрытие модального окна
 modalClose.onclick = function() {
-
     modalAdd.style.display = 'none'; // Скрываем модальное окно
+    toggleBodyScroll(false);
 };
+
+function toggleBodyScroll(lock) {
+    document.body.style.overflow = lock ? 'hidden' : '';
+  }
 
 // Функция для проверки уникальности
 function isTitleUnique(title) {
@@ -743,6 +756,7 @@ let editingProgram = null; // Хранит программ, которую мы
 sportTrainingInfoProgramsButtonAdd.onclick = function() {
     clearModalFields(); // Очищаем поля модального окна перед добавлением
     sportTrainingInfoProgramsModalAdd.style.display = 'block';
+    toggleBodyScroll(true);
     renderAvailableExercises();
     selectedExercises = [];
     renderSelectedExercises();
@@ -751,14 +765,22 @@ sportTrainingInfoProgramsButtonAdd.onclick = function() {
 // Закрытие модального окна
 modalCloseAddPrograms.onclick = function() {
     sportTrainingInfoProgramsModalAdd.style.display = 'none';
+    toggleBodyScroll(false);
 };
 
 // Закрытие модального окна при клике вне его
 window.onclick = function(event) {
     if (event.target === sportTrainingInfoProgramsModalAdd) {
         sportTrainingInfoProgramsModalAdd.style.display = 'none';
+        toggleBodyScroll(false);
     }
 };
+
+function toggleBodyScroll(lock) {
+    document.body.style.overflow = lock ? 'hidden' : '';
+  }
+
+  
 
 // // Функция для отображения доступных упражнений
 // function renderAvailableExercises() {
