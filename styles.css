@@ -1,793 +1,506 @@
-html,body{
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    /* border: 3px solid rgb(255, 196, 0); */
-}
 body {
     background-image: url(./fon/fon.png);
-    /* overflow-x: hidden;
-    margin-right: calc(-1 * (100vw – 100%)); */
-      
+    font-family: "JetBrains Mono",monospace;
+    color: #36395A;
 }
-.BodyWrapper {
+.version {
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100vh;
+    color: #36395A;
+    background-color: #FCFCFD;
+    border: 1px solid #36395A;
+    font-size: 10px;
+    width: 28px;
+    height: 13px;
+    border-radius: 5px;
+}
+/* *************************************************** Кастомные настройки *************************************************** */
+button {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 40px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
     overflow: hidden;
-    /* border: 3px solid rgb(255, 196, 0); */
-    /* margin: 3px; */
-}
-.BodyWrapperWrap {
-    width: 1150px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /* border: 3px solid rgb(255, 0, 0); */
-    margin: 3px;
-    
-}
-.bodyContentWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 3px solid rgb(255, 0, 242); */
-    margin: 3px;
-    width: 100%;
-    height: auto;
-    /* display: none; */
-}
-.bodyContent {
-    /* border: 3px solid rgb(0, 247, 255); */
-    margin: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    width: 100%;
-    height: auto;
-    /* border: 3px solid rgb(0, 255, 0); */
-    margin: 3px;
-}
-.navbar div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 3px solid rgb(0, 247, 255); */
-}
-.navbar a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    height: 130px;
-    border-radius: 5px;
-    text-align: center;
-    /* background-color: #fff; */
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
     text-decoration: none;
-    /* border: 3px solid rgb(153, 0, 255);  */
-    border: 1px solid rgb(255, 255, 255); 
-}
-.navbar .sportCalendarImgOne {
-    width: 64%;
-    background-color: transparent;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 10px 9px 10px 9px;
+
+
+
+  }
+  button:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+
+
+  label {
+    display: flex;
+    width: 100%;
+    font-size: 9px;
+    margin: 20px 0 5px 0;
+    /* border: 3px solid #d9ff00; */
+  }
+  select {
+    display: flex;
+    width: 100%;
+    border: 1px solid #36395A;
     border-radius: 5px;
-    display: block;
-    /* border: 1px solid rgb(255, 255, 255);  */
-}
-.navbar .sportCalendarImgTwo {
-    width: 90%;
-    background-color: transparent;
+    margin: 0 0 5px 0;
+    padding: 10px;
+  }
+  input {
+    display: flex;
+    width: 100%;
+    border: 1px solid #36395A;
     border-radius: 5px;
-    display: none;
-    
+    margin: 0 0 5px 0;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  input[type="datetime-local"],
+  select {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* border-radius: 5px; */
+  }
+  input[type="color"]  
+  {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 2px;
+    /* background-color: hsla(235, 25%, 28%, 0.5); */
+    /* border-style: none; */
+  }
+/* *************************************************** Кастомные настройки *************************************************** */
+
+
+
+/* ============================================================================= разделы ============================================================================= */
+/* Оболочка, для всего на странице в ней весь контент */
+.bodyAllWrapperContent {
+    background-color: transparent;
+    /* border:1px solid red; */
 }
-.navbar a:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+/* Оболочка, для кнопок Календарь Тренировки Статистика */
+.bodyButtonWrap {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    /* border:1px solid red; */
 }
-.navbar a:hover .sportCalendarImgOne {
-    display: none;
-}
-.navbar a:hover .sportCalendarImgTwo {
-    display: block; 
+/* главная оболочка, в ней отображается все происходящее на странице по нажатию Календарь Тренировки Статистика */
+.AllWrapperContent {
+    /* background-color: white; */
+    background-color: transparent;
+    /* border:1px solid red; */
 }
 
-.modal {
+/* ========================================== НАЧАЛО раздел Календарь ========================================== */
+/* ========================================== НАЧАЛО раздел Календарь ========================================== */
+/* ========================================== НАЧАЛО раздел Календарь ========================================== */
+/* Скрываем раздел Calendar по умолчанию */
+.WrapperContentSportCalendar {
     display: none; 
-    position: fixed; 
-    z-index: 2; 
+}
+/* ========================================== КОНЕЦ раздел Календарь ========================================== */
+/* ========================================== КОНЕЦ раздел Календарь ========================================== */
+/* ========================================== КОНЕЦ раздел Календарь ========================================== */
+
+
+/* ========================================== НАЧАЛО раздел Тренировки ========================================== */
+/* ========================================== НАЧАЛО раздел Тренировки ========================================== */
+/* ========================================== НАЧАЛО раздел Тренировки ========================================== */
+/* Скрываем раздел Training по умолчанию */
+.WrapperContentSportTraining {
+    display: none; 
+}
+/* Оболочка, для кнопок Программы Упражнения Классы */
+.SportTrainingButtonWrap {
+    background-color: transparent;
+    /* border:1px solid red; */
+}
+/* Оболочка главная в ней отображается все происходящее на странице по нажатию Программы Упражнения Классы */
+.ContentSportTrainingWrap {
+    background-color: transparent;
+    /* border:1px solid red; */
+}
+
+
+/* ============================ НАЧАЛО раздел Классы ============================ */
+/* ============================ НАЧАЛО раздел Классы ============================ */
+/* Оболочка главная Классы */
+.sportTrainingInfoClassesInfo {
+    display: none; /* Скрываем подраздел по умолчанию */
+}
+/* ============================ модальное окно добавления классов  */
+.modalOpenAddClass {
+    display: none; /* Скрываем по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    z-index: 1000; /* Выше других элементов */
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    /* background-color: rgba(0,0,0,0.4);  */
-    background-color: #333; 
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+    border:3px solid red;
 }
 
-.modal-content {
-    background-image: url(./fon/fon.png);
-    margin: 0; 
-    padding: 0;
-    padding: 5px;
-    /* border: 3px solid #ff0000; */
-    min-width: 100%; 
-    min-height: 100%; 
+.sportTrainingInfoClassesModalList {
     display: flex;
-    justify-content: start;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    position: absolute; /* Позиционирование по центру */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем модальное окно */
+    background-color: white; 
+    border-radius: 5px; 
+    padding: 0 10px 30px 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    width: 360px; 
+    height: auto;
+    border:3px solid red;
 }
-.sportClose {
-    position: sticky;
-    top: 20px;
-    width: 100%;
-    /* border: 3px solid rgb(81, 255, 0); */
+
+.modalCloseAddClass {
     display: flex;
+    align-items: center;
     justify-content: end;
-    align-items: center;
-}
-.close, .closeEx, .closeAddEx, .closeAddClass {
-    /* display: flex;
-    justify-content: end;
-    align-items: center;
-    flex-wrap: wrap; */
-    color: #aaa;
-    width: 80px;
-    height: 80px;
-    /* font-size: 38px;
-    font-weight: bold; */
-    /* width: 10%; */
-    /* border: 3px solid rgb(153, 0, 255); */
-}
-.close img,
-.closeEx img,
-.closeAddEx img,
-.closeAddClass img {
-    position: relative;
-    left: 18px;
-    width: 70%;
-    /* border: 3px solid rgb(153, 0, 255); */
-}
-.close span,
-.closeEx span,
-.closeAddEx span,
-.closeAddClass span {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 3px solid rgb(153, 0, 255); */
-}
-
-.close:hover, .close:focus,
-.closeEx:hover, .closeEx:focus,
-.closeAddEx:hover, .closeAddEx:focus,
-.closeAddClass:hover, .closeAddClass:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-/* calendar ====================================================== */
-
-.sportContainer1Wrapper,
-.sportContainer2Wrapper,
-.sportContainer4Wrapper {
-    /* border: 3px solid rgb(255, 0, 0); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: auto;
+    cursor: pointer; /* Указатель на кнопке закрытия */
+    font-weight: bold; /* Жирный текст */
+    float: right; /* Сдвигаем вправо */
+    border:3px solid red;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 10px;
+    padding-right: 10px;
 }
-#sport-container1 {
-    width: 1150px; 
-    height: 450px;
-    /* border: 3px solid rgb(153, 0, 255); */
-    border: 1px solid rgb(255, 255, 255);
-    margin: 3px;
-    padding: 30px 0 0 0;
+.sportTrainingInfoClassesModalList h2 {
     display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-#sport-container1:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-#calendar-navigation {
-    width: 100%; 
-    height: 60px;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    /* border: 3px solid rgb(0, 255, 0); */
-    padding: 1px;
-}
-#prev-month {
-    min-width: 80px;
-    width: 10%; 
-    display: flex;
     justify-content: center;
-    align-items: start;
-    /* border: 3px solid rgb(153, 0, 255); */
-    border: 1px solid rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    border-radius: 5px;
-    padding: 1px;
-    background-color: transparent;
-}
-#prev-month img {
-    width: 50%;
-}
-#prev-month:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-#current-month {
-    min-width: 180px;
-    width: 20%; 
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    font-size: 25px;
-    /* border: 3px solid rgb(255, 238, 0); */
-    padding: 1px;
-}
-#next-month {
-    min-width: 80px;
-    width: 10%; 
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    /* border: 3px solid rgb(153, 0, 255); */
-    border: 1px solid rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    border-radius: 5px;
-    padding: 1px;
-    background-color: transparent;
-}
-#next-month:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-#next-month img {
-    width: 50%;
-    transform: rotate(180deg);
-}
-#calendar {
     width: 100%;
-    min-height: 330px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    /* border: 3px solid rgb(153, 0, 255); */
-    padding: 1px;
-    margin: 1px;
-}
-
-.day {
-    /* border: 1px solid #c40e0e; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
     font-size: 30px;
-    cursor: pointer; /* Курсор указывает на возможность клика */
-    border-radius: 10px;
+    font-weight: 700;
+    line-height: 21px;
+    margin: 10px;
+    border: 1px solid red;
 }
-
-.today {
-    background-color: #e5ff006c; /* Цвет подсветки для текущего дня */
-    
-}
-
-.hovered {
-    background-color: #00fff256; /* Цвет подсветки для наведения */
-    
-}
-
-.selected {
-    background-color: #74ff0362; /* Цвет подсветки для выбранного дня */
-    
-}
-#sport-container2 {
-    /* border: 3px solid rgb(255, 0, 0); */
+.sportTrainingInfoClassesModalListform {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 3px solid red;
+}
+.sportTrainingInfoClassesModalListformButtonWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 3px solid red;
+}
+.sportTrainingInfoClassesListWrap {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-}
-#sport-container2 h3 {
-    /* width: 100%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    border: 3px solid rgb(217, 255, 0);
-    padding: 1px;
-    margin: 1px; */
-    display: none;
-}
-#sport-container2 .sportAdd {
-    width: 1150px; 
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 3px solid rgb(217, 255, 0); */
-}
-#sport-add-button {
-    /* border: 3px solid rgb(153, 0, 255); */
-    padding: 1px;
-    margin: 1px;
-    background: transparent;
-}
-#sport-add-button img {
-    width: 70%;
-}
-#sport-approaches {
-    min-width: 300px;
-    width: 1150px; 
-    min-height: 315px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /* border: 3px solid rgb(0, 204, 255); */
-    margin: 3px;
-}
-.WrapProgramAll {
-    min-width: 300px;
-    width: 100%; 
-    height: auto;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255);
-    /* border: 3px solid rgb(0, 255, 34); */
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    margin-bottom: 50px;
-}
-.formattedProgramStart:hover,
-.formattedProgramDelet:hover,
-.WrapProgramAll:hover,
-.WrapProgram:hover,
-.WrapProgramExercise:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-.buttonStartDeletWrapper {
-    /* border: 3px solid rgb(153, 0, 255); */
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    min-width: 300px;
-    width: 100%;
-    padding: 20px 0 20px 20px;
-}
-.formattedProgramStart,
-.formattedProgramDelet{
-    width: 50px;
-    height: 50px;
-    margin: 15px;
-    background: transparent;
-    /* background: #fff; */
-    border-radius: 5px;
-    /* border: 3px solid rgb(153, 0, 255); */
-    border: 1px solid rgb(255, 255, 255);
-    /* margin: 0 20px 20px 10px; */
-    /* padding: 10px; */
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedProgramStart img,
-.formattedProgramDelet img {
-    width: 100%;
-}
-.formattedProgramDateNameColorWrapper {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    /* gap: 5px; */
-    /* margin-left: 30px; */
-    /* border: 3px solid rgb(255, 238, 0); */
-    min-width: 285px;
-    width: 100%;
-}
-.formattedProgramDate  {
-    /* width: auto; */
-    padding: 5px;
-    margin: 20px 0 0 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedProgramName {
-    /* width: auto; */
-    padding: 5px;
-    margin: 20px 0 0 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedProgramColor {
-    /* width: auto; */
-    padding: 5px;
-    margin: 20px 0 0 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    display: none;
-}
-.WrapProgram {
-    width: 95%; 
-    min-width: 300px;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255);
-    /* border: 3px solid rgb(153, 0, 255); */
-    padding: 10px 0 20px 10px;
-    margin: 20px 0 0 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    background-color: transparent;
-}
-
-.WrapProgramExercise {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-    min-width: 300px;
-    width: 95%; 
-    border-radius: 5px;
-    /* border: 3px solid rgb(21, 255, 0); */
-    border: 1px solid rgb(255, 255, 255);
-    margin: 0 0 10px 0;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedExerciseTitleWrapper {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-    min-width: 300px;
-    width: 100%; 
-    /* border: 3px solid rgb(21, 255, 0); */
-}
-.formattedExerciseTitle {
-    /* width: auto; */
-    padding: 5px;
-    margin: 10px 5px 0 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedExerciseDescriptionWrapper {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-    min-width: 300px;
-    width: 100%; 
-    margin-right: 3px;
-    /* border: 3px solid rgb(21, 255, 0); */
-}
-.formattedExerciseDescription {
-    /* width: auto; */
-    padding: 5px;
-    margin: 5px 10px 10px 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedExerciseClassWrapper {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    min-width: 300px;
-    width: 100%; 
-    /* border: 3px solid rgb(21, 255, 0); */
-}
-.formattedExerciseClass1 {
-    /* width: auto; */
-    padding: 5px;
-    margin: 5px 10px 0 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedExerciseClass2 {
-    /* width: auto; */
-    padding: 5px;
-    margin: 5px 10px 0 0;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.formattedExerciseColor {
-    display: none;
-    /* color: rgba(255, 0, 0, 0.2);
-    color: rgba(0, 128, 0, 0.2);
-    color: rgba(0, 0, 255, 0.2);
-    color: rgba(255, 255, 0, 0.2);
-    color: rgba(238, 130, 238, 0.2);
-    color: rgba(255, 166, 0, 0.2);
-    color: rgba(255, 192, 203, 0.2);
-    color: rgba(128, 128, 128, 0.2); */
-}
-
-/* calendar ====================================================== */
-
-
-/* модальное окно доступные программы ====================================================== */
-.sportAvailableProgramsNone {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    margin-top: 30px;
-}
-.modalContentH2 {
-    /* border: 3px solid rgb(0, 140, 255); */
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.modalContentH2 h2 {
-    font-size: 30px;
-}
-#sport-container4 {
-    /* border: 3px solid rgb(255, 0, 0); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-}
-#sport-available-programs {
-    width: 1150px; 
-    height: auto;
-    /* border: 3px solid rgb(238, 255, 0); */
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-}
-.formattedProgramAddProgramAllButtonWrapper {
-    /* border: 3px solid rgb(153, 0, 255); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-}
-.formattedProgramAddProgramAllButton {
-    /* border: 3px solid rgb(153, 0, 255); */
-    border-radius: 5px;
-    background: transparent;
     padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-#formattedProgramAddProgram {
-    width: 50px;
-    height: 50px;
-
-    background: transparent;
-    /* background: #fff; */
-    border-radius: 5px;
-    /* border: 3px solid rgb(153, 0, 255); */
-    border: 1px solid rgb(255, 255, 255);
-    margin: 20px 20px 20px 37px;
-    /* padding: 10px; */
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-#formattedProgramAddProgram img {
-    /* border: 3px solid rgb(153, 0, 255); */
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-.formattedProgramAddProgramAllButton {
-    background: transparent;
-    border-radius: 5px;
-    /* border: 3px solid rgb(208, 255, 0); */
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.formattedProgramAddProgramAllButton div {
-    /* border: 3px solid rgb(0, 255, 34); */
-    border-radius: 5px;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-}
-.formattedProgramAddProgramAllButtonImgActiv {
-    background-color: lightgreen;
-}
-.formattedProgramAddProgramAllButton div img {
-    width: 100%;
-}
-/* .formattedProgramAddProgrambuttonOne {
-    display: block;
-}
-.formattedProgramAddProgrambuttonOne:active {
-    display: none;
-}
-.formattedProgramAddProgrambuttonTwo:active {
-    display: block;
-} */
-
-.sportExerciseTitleWrapper {
-    /* border: 3px solid rgb(255, 0, 0); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 10px;
     width: 100%;
     height: auto;
+    /* border: 3px solid red; */
 }
-.sportExerciseTitle {
-    width: 1150px; 
-    height: auto;
-    /* border: 3px solid rgb(238, 255, 0); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.sportExerciseTitle h2 {
-    /* border: 3px solid rgb(238, 255, 0); */
-    font-size: 30px;
-    margin-bottom: 30px;
-}
-.sportExerciseListWrapper {
-    /* border: 3px solid rgb(255, 0, 0); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-.sportExerciseList {
-    width: 1150px; 
-    height: auto;
-    /* border: 3px solid rgb(238, 255, 0); */
+.sportTrainingInfoClassesContentWrap {
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
-}
-.sportExerciseWrap {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row-reverse;
-    min-width: 345px;
     width: 100%;
+    max-width: 370px;
+    gap: 10px;
     border-radius: 5px;
-    /* border: 3px solid rgb(0, 0, 0); */
-    border: 1px solid rgb(255, 255, 255);
-    margin: 0 0 20px 0;
-    padding: 5px 0 10px 0;
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color: #36395A;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* border: 3px solid red; */
 }
-.sportExerciseWrap:hover {
+.sportTrainingInfoClassesContentWrap:hover {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-.sportExercise {
+.sportTrainingInfoClassesContentH2 {
     display: flex;
     justify-content: start;
     align-items: start;
-    flex-wrap: wrap;
-    /* flex-direction: column; */
-    width: 90%;
-    /* height: 100%; */
-    /* border: 3px solid rgb(0, 162, 255); */
-    margin: 0 5px 5px 0;
-}
-.sportExerciseExerciseTitleWrap {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    gap: 5px;
-    /* border: 3px solid rgb(255, 238, 0); */
-    min-width: 285px;
     width: 100%;
+    height: auto;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 10px;
+    white-space: pre-wrap;
+    /* border: 3px solid red; */
 }
-.sportExerciseClassWrap {
+.sportTrainingInfoClassesContentWrapSecondaryClass {
     display: flex;
     justify-content: start;
-    align-items: start;
-    gap: 5px;
-    /* border: 3px solid rgb(255, 238, 0); */
-    min-width: 285px;
-    width: 100%;
-}
-.sportExerciseDescriptionWrap {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    gap: 5px;
-    /* border: 3px solid rgb(255, 238, 0); */
-    min-width: 285px;
-    width: 100%;
-}
-.sportExerciseExerciseTitle {
+    align-items: center;
     width: auto;
-    padding: 5px;
-    margin: 5px 0 0 0;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgba(146, 235, 220, 0.5); 
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    /* border: 3px solid rgb(255, 0, 157); */
 }
-.sportExerciseClass1 {
+.sportTrainingInfoClassesContentWrapSecondaryClass:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.sportTrainingInfoClassesContentWrapSecondaryClassContent {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     width: auto;
-    padding: 5px;
-    margin: 5px 0 0 0;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    /* border: 3px solid rgb(255, 0, 157); */
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 0 10px 10px;
+    /* border: 3px solid red; */
 }
-.sportExerciseClass2 {
-    /* width: auto; */
-    padding: 5px;
-    margin: 5px 0 0 0;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    /* border: 3px solid rgb(0, 255, 98); */
+/* ============================ модальное окно добавления классов  */
+
+/* ============================ КОНЕЦ раздел Классы ============================ */
+/* ============================ КОНЕЦ раздел Классы ============================ */
+
+
+/* ============================ НАЧАЛО раздел Упражнения ============================ */
+/* ============================ НАЧАЛО раздел Упражнения ============================ */
+/* Оболочка главная Упражнения */
+.sportTrainingInfoExercisesInfo {
+    display: none; /* Скрываем подраздел по умолчанию */
 }
-.sportExerciseDescription {
-    /* width: auto; */
-    padding: 5px;
-    margin: 5px 0 0 0;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    /* border: 3px solid rgb(0, 255, 21); */
+/* =============================== модальное окно добавления упражнений =============================== */
+.modalOpenAddExercises {
+    display: none; /* Скрываем по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    z-index: 1000; /* Выше других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+    /* border:3px solid red; */
 }
-.sportExerciseButton {
-    /* border: 3px solid rgb(4, 68, 13); */
-    border-radius: 5px;
-    width: 50px;
+
+.sportTrainingInfoExercisesModalList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute; /* Позиционирование по центру */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем модальное окно */
+    background-color: white; 
+    border-radius: 5px; 
+    padding: 0 10px 30px 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    width: 360px; 
+    height: auto;
+    /* border:3px solid red; */
+}
+
+.modalCloseAddExercises {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: auto;
+    cursor: pointer; 
+    font-weight: bold; 
+    /* border:3px solid red; */
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 10px;
+    padding-right: 10px;
+}
+.sportTrainingInfoExercisesModalList h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 21px;
+    margin: 10px;
+    /* border: 1px solid red; */
+}
+.sportTrainingInfoExercisesModalListform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    /* border: 3px solid red; */
+}
+.sportTrainingInfoExercisesModalListformButtonWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    /* border: 3px solid red; */
+}
+.sportTrainingInfoExercisesModalListformColorWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    gap: 5%;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    /* border: 3px solid red; */
+}
+.sportTrainingInfoExercisesModalListformColor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    /* border: 3px solid red; */
+}
+#sportTrainingInfoExercisesModalColor {
+    width: 100%; 
     height: 50px;
-    background: transparent;
-    margin: 0 10px 0 10px;
 }
-.sportExerciseButton img {
+
+
+.sportTrainingInfoExercisesModalListformColorOpacityWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
+    height: auto;
+    /* border: 3px solid red; */
+}
+.sportTrainingInfoExercisesModalListformColor label,
+.sportTrainingInfoExercisesModalListformColorOpacityWrap label {
+    margin: 0;
+}
+/* ============================ модальное окно добавления упражнений  */
+
+/* ============================ КОНЕЦ раздел Упражнения ============================ */
+/* ============================ КОНЕЦ раздел Упражнения ============================ */
+
+
+/* ============================ НАЧАЛО раздел Программы ============================ */
+/* ============================ НАЧАЛО раздел Программы ============================ */
+/* Оболочка главная Программы */
+.sportTrainingInfoProgramsInfo {
+    display: none; /* Скрываем подраздел по умолчанию */
+}
+/* ============================ модальное окно добавления программ  */
+.modalOpenAddPrograms {
+    display: none; /* Скрываем по умолчанию */
+    /* position: fixed; Фиксированное положение */
+    z-index: 1000; /* Выше других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
 }
 
+.sportTrainingInfoProgramsModalList {
+    position: absolute; /* Позиционирование по центру */
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%); /* Центрируем модальное окно */
+    background-color: white; /* Цвет фона окна */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 15px; /* Отступы */
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень */
+    width: 360px; /* Ширина модального окна */
+    min-height: 800px;
+    height: auto;
+}
+.modalCloseAddPrograms {
+    cursor: pointer; /* Указатель на кнопке закрытия */
+    color: #007bff; /* Цвет текста */
+    font-weight: bold; /* Жирный текст */
+    float: right; /* Сдвигаем вправо */
+}
+/* ============================ модальное окно добавления программ  */
 
+/* ============================ КОНЕЦ раздел Программы ============================ */
+/* ============================ КОНЕЦ раздел Программы ============================ */
+
+/* ========================================== КОНЕЦ раздел Тренировки ========================================== */
+/* ========================================== КОНЕЦ раздел Тренировки ========================================== */
+/* ========================================== КОНЕЦ раздел Тренировки ========================================== */
+
+
+/* ========================================== НАЧАЛО раздел Статистика ========================================== */
+/* ========================================== НАЧАЛО раздел Статистика ========================================== */
+/* ========================================== НАЧАЛО раздел Статистика ========================================== */
+/* Скрываем раздел Statistics по умолчанию */
+.WrapperContentSportStatistics {
+    display: none; 
+}
+/* ========================================== КОНЕЦ раздел Статистика ========================================== */
+/* ========================================== КОНЕЦ раздел Статистика ========================================== */
+/* ========================================== КОНЕЦ раздел Статистика ========================================== */
+
+
+/* ============================================================================= разделы ============================================================================= */
+
+
+/* Медиазапрос для мобильных устройств (ширина экрана 480px и меньше) */
+/* ======================================================== */
+@media (max-width: 768px) {
+
+}
