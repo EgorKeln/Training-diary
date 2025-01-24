@@ -178,7 +178,6 @@ button {
     background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
     /* border:3px solid red; */
 }
-
 .sportTrainingInfoClassesModalList {
     display: flex;
     align-items: center;
@@ -196,7 +195,6 @@ button {
     height: auto;
     /* border:3px solid red; */
 }
-
 .modalCloseAddClass {
     display: flex;
     align-items: center;
@@ -239,6 +237,7 @@ button {
     margin-top: 20px;
     /* border: 3px solid red; */
 }
+
 .sportTrainingInfoClassesListWrap {
     display: flex;
     justify-content: start;
@@ -277,7 +276,7 @@ button {
     align-items: start;
     width: 100%;
     height: auto;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     padding: 10px;
     white-space: pre-wrap;
@@ -289,7 +288,8 @@ button {
     align-items: center;
     width: auto;
     border-radius: 5px;
-    background-color: rgba(146, 235, 220, 0.5); 
+    /* background-color: rgba(146, 235, 220, 0.5);  */
+    background-color: #FCFCFD;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .sportTrainingInfoClassesContentWrapSecondaryClass:hover {
@@ -416,8 +416,6 @@ button {
     width: 100%; 
     height: 50px;
 }
-
-
 .sportTrainingInfoExercisesModalListformColorOpacityWrap {
     display: flex;
     align-items: center;
@@ -430,6 +428,92 @@ button {
 .sportTrainingInfoExercisesModalListformColor label,
 .sportTrainingInfoExercisesModalListformColorOpacityWrap label {
     margin: 0;
+}
+.sportTrainingInfoExerciseListWrap {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    /* border: 3px solid red; */
+}
+.sportTrainingInfoExerciseContentWrap {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 370px;
+    gap: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color: #36395A;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* border: 3px solid rgb(255, 251, 0); */
+}
+.sportTrainingInfoExerciseContentWrap:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.sportTrainingInfoExerciseContentWrapContent {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 370px;
+    gap: 10px;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: #FCFCFD;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color: #36395A;
+    padding: 10px;
+    /* margin-bottom: 10px; */
+    /* border: 3px solid rgb(0, 255, 13); */
+}
+
+.sportTrainingInfoExerciseContentTitle {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 10px;
+    white-space: pre-wrap;
+    /* border: 3px solid red; */
+}
+.sportTrainingInfoExerciseContentClass {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: auto;
+    border-radius: 5px;
+    /* background-color: rgba(146, 235, 220, 0.5);  */
+    background-color: #FCFCFD;
+    font-size: 14px;
+    font-weight: 400;
+}
+.sportTrainingInfoExerciseContentDescription {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: auto;
+    border-radius: 5px;
+    /* background-color: rgba(146, 235, 220, 0.5);  */
+    background-color: #FCFCFD;
+
+}
+.sportTrainingInfoExerciseContentButtonWrap {
+    width: 100%;
+    /* border: 3px solid red; */
 }
 /* ============================ модальное окно добавления упражнений  */
 
