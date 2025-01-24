@@ -254,25 +254,6 @@ const saveSecondaryButton = document.getElementById('sportTrainingInfoClassesSec
 
 let arrayOfClasses = JSON.parse(localStorage.getItem('arrayOfClasses')) || [];
 
-// // Глобальный массив для хранения классов
-// let arrayOfClasses = []; 
-// // Функция для загрузки классов из localStorage
-// function loadClasses() {
-//     arrayOfClasses = JSON.parse(localStorage.getItem('arrayOfClasses')) || [];
-// }
-// // Функция для сохранения классов в localStorage
-// function saveClasses() {
-//     localStorage.setItem('arrayOfClasses', JSON.stringify(arrayOfClasses));
-// }
-// // Функция для добавления нового класса
-// function addClass(newClass) {
-//     arrayOfClasses.push(newClass);
-//     saveClasses(); // Обновляем localStorage после изменения
-// }
-// // Инициализация при загрузке
-// loadClasses();
-
-
 // Функция для обновления списка классов и сохранения в localStorage
 function updateClassesList() {
     sportTrainingInfoClassesList.innerHTML = ''; // Очищаем текущий список классов
@@ -341,13 +322,6 @@ function updateClassesList() {
     localStorage.setItem('arrayOfClasses', JSON.stringify(arrayOfClasses)); // Сохраняем в localStorage
 }
 
-
-
-
-
-
-
-
 // Отображение модального окна
 sportTrainingInfoClassesButtonAdd.onclick = function() {
     modalAddClass.style.display = 'block';
@@ -366,18 +340,6 @@ primaryAddButton.onclick = function() {
     secondaryAddModal.style.display = 'none';
 };
 
-// savePrimaryButton.onclick = function() {
-//     const className = primaryClassNameInput.value.trim();
-//     if (className) {
-//         const newClass = { name: className, type: 'primary' };
-//         arrayOfClasses.push(newClass);
-//         primaryClassNameInput.value = ''; // Очищаем поле ввода
-//         updateClassesList();
-//         modalAddClass.style.display = 'none'; // Закрываем модальное окно
-//     } else {
-//         alert("Пожалуйста, введите название первичного класса.");
-//     }
-// };
 savePrimaryButton.onclick = function() {
     const className = primaryClassNameInput.value.trim();
     
@@ -469,17 +431,7 @@ updateClassesList();
 // Упражнения
 // Логика для добавления упражнений
 
-// const sportTrainingInfoExercisesButtonAdd = document.getElementById('sportTrainingInfoExercisesButtonAdd');
-// const sportTrainingInfoExercisesList = document.getElementById('sportTrainingInfoExercisesList');
 
-// sportTrainingInfoExercisesButtonAdd.onclick = function() {
-//     const exercise = prompt("Введите название упражнения:");
-//     if (exercise) {
-//         const exerciseItem = document.createElement('div');
-//         exerciseItem.textContent = exercise;
-//         sportTrainingInfoExercisesList.appendChild(exerciseItem);
-//     }
-// };
 const sportTrainingInfoExercisesButtonAdd = document.getElementById('sportTrainingInfoExercisesButtonAdd');
 const sportTrainingInfoExercisesList = document.getElementById('sportTrainingInfoExercisesList');
 const modalAdd = document.getElementById('sportTrainingInfoExercisesModalAdd');
@@ -553,55 +505,6 @@ function isTitleUnique(title) {
     return arrayOfExercises.every(exercise => exercise.title.toLowerCase() !== title.toLowerCase());
 }
 
-// // Сохранение нового упражнения
-// saveButton.onclick = function() {
-//     const title = document.getElementById('sportTrainingInfoExercisesModalTitle').value;
-//     const description = document.getElementById('sportTrainingInfoExercisesModalDescription').value;
-//     const primaryClass = primaryClassSelect.value;
-//     const secondaryClass = secondaryClassSelect.value;
-//     const color = document.getElementById('sportTrainingInfoExercisesModalColor').value; // Цвет в HEX
-//     const opacity = document.getElementById('sportTrainingInfoExercisesModalOpacity').value;
-
-//     if (title) {
-//         if (!isTitleUnique(title) && currentExerciseIndex === null) {
-//             alert("Упражнение с таким названием уже существует! Пожалуйста, выберите уникальное название."); // Уведомление о дубликате
-//             return;
-//         }
-
-//         const rgbaColor = hexToRgba(color, opacity); // Преобразование цвета HEX в RGBA
-//         const exercise = {
-//             title,
-//             description,
-//             primaryClass,
-//             secondaryClass,
-//             color: rgbaColor // Сохраняем цвет в формате RGBA
-//         };
-
-//         if (currentExerciseIndex !== null) {
-//             // Если редактируем упражнение, проверяем уникальность только среди остальных
-//             const existingExercise = arrayOfExercises[currentExerciseIndex];
-//             if (existingExercise.title.toLowerCase() !== title.toLowerCase() && !isTitleUnique(title)) {
-//                 alert("Упражнение с таким названием уже существует! Пожалуйста, выберите уникальное название."); // Уведомление о дубликате
-//                 return;
-//             }
-//             arrayOfExercises[currentExerciseIndex] = exercise;
-//         } else {
-//             // Если добавляем новое упражнение
-//             arrayOfExercises.push(exercise);
-//         }
-
-//         localStorage.setItem('arrayOfExercises', JSON.stringify(arrayOfExercises)); // Сохранение в localStorage
-//         updateExerciseList(); // Обновление списка
-
-//         // Скрытие модального окна после сохранения
-//         modalAdd.style.display = 'none';
-
-//         // Очистка полей ввода
-//         clearInputFields();
-//     } else {
-//         alert("Пожалуйста, введите название упражнения."); // Уведомление, если имя не введено
-//     }
-// };
 
 // Функция для генерации уникального ID длиной 10 символов
 function generateUniqueId() {
@@ -679,20 +582,14 @@ saveButton.onclick = function() {
 };
 
 
-
-
-
-
-
-
-
-
 // Функция для обновления списка упражнений в интерфейсе
 function updateExerciseList() {
     sportTrainingInfoExercisesList.innerHTML = ''; // Очищаем текущий список
+        const exerciseItemWrap = document.createElement('div');
+        exerciseItemWrap.className = "sportTrainingInfoExerciseListWrap";
     arrayOfExercises.forEach((exercise, index) => {
         const exerciseItem = document.createElement('div');
-        // exerciseItem.className = "exercise-block";
+        exerciseItem.className = "sportTrainingInfoExerciseContentWrap";
             exerciseItem.style.backgroundColor = exercise.color; // Устанавливаем цвет фона
             exerciseItem.style.opacity = 1; // Устанавливаем непрозрачность
             exerciseItem.style.padding = "10px";
@@ -700,46 +597,22 @@ function updateExerciseList() {
             exerciseItem.style.borderRadius = "5px";
             // exerciseItem.style.color = "#000";
             exerciseItem.innerHTML = `
-            ${exercise.primaryClass}
-            (${exercise.secondaryClass})<p>
-            ${exercise.title}<p>
-            ${exercise.description}.<p>
+            <div class="sportTrainingInfoExerciseContentTitle">${exercise.title}</div>
+            <div class="sportTrainingInfoExerciseContentWrapContent">
+            <div class="sportTrainingInfoExerciseContentClass">${exercise.primaryClass}, ${exercise.secondaryClass}</div>
+            <div class="sportTrainingInfoExerciseContentDescription"> ${exercise.description}</div>
+            </div>
+            <div class="sportTrainingInfoExerciseContentButtonWrap">
             <button onclick="editExercise(${index})">Редактировать</button>
             <button onclick="deleteExercise(${index})">Удалить</button>
+            </div>
         `;
         // ID: ${exercise.id},
         // Цвет: ${exercise.color}
-        sportTrainingInfoExercisesList.appendChild(exerciseItem);
+        sportTrainingInfoExercisesList.appendChild(exerciseItemWrap);
+        exerciseItemWrap.appendChild(exerciseItem);
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Функция для преобразования цвета HEX в RGBA
 function hexToRgba(hex, opacity) {
@@ -779,8 +652,6 @@ function editExercise(index) {
     modalAdd.style.display = 'block'; // Показываем модальное окно
 }
 
-
-
 // Функция для преобразования цвета из rgba в hex
 function rgbaToHex(rgba) {
     const rgbaArray = rgba.match(/\d+/g); // Извлекаем числа из rgba
@@ -792,33 +663,6 @@ function rgbaToHex(rgba) {
                  ("0" + b.toString(16).toUpperCase()).slice(-2);
 }
 
-// // Функция для редактирования программы
-// function editProgram(program) {
-//     editingProgram = program; // Установка редактируемой программы
-//     document.getElementById('sportTrainingInfoProgramsModalTitle').value = program.title;
-
-//     // Преобразуем цвет из rgba в hex перед установкой
-//     const hexColor = rgbaToHex(program.color);
-//     document.getElementById('sportTrainingInfoProgramsModalColor').value = hexColor; 
-//     
-
-//     selectedExercises = program.exercises.slice(); // Копируем упражнения текущей программы
-//     renderSelectedExercises();
-
-//     // Вызов функции отображения доступных упражнений
-//     renderAvailableExercises();
-
-//     sportTrainingInfoProgramsModalAdd.style.display = 'block'; // Показываем модальное окно
-// }
-
-
-
-
-
-
-
-
-
 // Функция для удаления упражнения
 function deleteExercise(index) {
     if (confirm("Вы уверены, что хотите удалить это упражнение?")) {
@@ -827,13 +671,6 @@ function deleteExercise(index) {
         updateExerciseList(); // Обновление списка
     }
 }
-
-// // Функция для преобразования цвета RGBA в HEX
-// function rgbaToHex(rgba) {
-//     const rgb = rgba.match(/\d+/g);
-//     const hex = (1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2]);
-//     return `#${(hex | 0).toString(16).slice(1)}`;
-// }
 
 // При загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
