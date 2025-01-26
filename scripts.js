@@ -49,177 +49,8 @@ sportTrainingInfoClassesButton.onclick = function() {
 };
 // Инициализация, чтобы показать сначала календарь
 showSection(sportCalendarInfo);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Логика для добавления тренировок
-const sportCalendarInfoTrainingButtonAdd = document.getElementById('sportCalendarInfoTrainingButtonAdd');
-const sportCalendarInfoTrainingList = document.getElementById('sportCalendarInfoTrainingList');
-
-sportCalendarInfoTrainingButtonAdd.onclick = function() {
-    const workout = prompt("Введите название тренировки:"); // Получаем название тренировки от пользователя
-    if (workout) {
-        const workoutItem = document.createElement('div');
-        workoutItem.textContent = workout; // Устанавливаем текст элемента
-        sportCalendarInfoTrainingList.appendChild(workoutItem); // Добавляем элемент в список
-    }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Изначально показываем программы в тренировках
+showTrainingSubsection(sportTrainingInfoProgramsInfo);
 
 
 
@@ -368,7 +199,6 @@ savePrimaryButton.onclick = function() {
     }
 };
 
-
 // Логика для добавления вторичного класса
 secondaryAddButton.onclick = function() {
     primaryAddModal.style.display = 'none';
@@ -421,24 +251,11 @@ updateClassesList();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Упражнения
 // Упражнения
 // Упражнения color
 // Упражнения
 // Логика для добавления упражнений
-
 
 const sportTrainingInfoExercisesButtonAdd = document.getElementById('sportTrainingInfoExercisesButtonAdd');
 const sportTrainingInfoExercisesList = document.getElementById('sportTrainingInfoExercisesList');
@@ -518,7 +335,6 @@ function isTitleUnique(title) {
     return arrayOfExercises.every(exercise => exercise.title.toLowerCase() !== title.toLowerCase());
 }
 
-
 // Функция для генерации уникального ID длиной 10 символов
 function generateUniqueId() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -593,7 +409,6 @@ saveButton.onclick = function() {
         alert("Пожалуйста, введите название упражнения."); // Уведомление, если имя не введено
     }
 };
-
 
 // Функция для обновления списка упражнений в интерфейсе
 function updateExerciseList() {
@@ -691,8 +506,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateExerciseList(); // Обновить список во время загрузки страницы
 });
 
-
-
 // Логика для добавления упражнений
 // Логика для добавления упражнений
 // Упражнения
@@ -712,32 +525,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
-
-// Программы FFFFFF
+// Программы 
 // Программы
 // Программы
 // Программы
 // Логика для добавления программ
-// const sportTrainingInfoProgramsButtonAdd = document.getElementById('sportTrainingInfoProgramsButtonAdd');
-// const sportTrainingInfoProgramsList = document.getElementById('sportTrainingInfoProgramsList');
-
-// sportTrainingInfoProgramsButtonAdd.onclick = function() {
-//     const program = prompt("Введите название программы:");
-//     if (program) {
-//         const programItem = document.createElement('div');
-//         programItem.textContent = program;
-//         sportTrainingInfoProgramsList.appendChild(programItem);
-//     }
-// };
-// Логика для добавления программ
-
-// Загружаем массивы из localStorage
-// Загружаем массивы из localStorage
-// Загружаем массив из localStorage
 
 let arrayOfPrograms = JSON.parse(localStorage.getItem('arrayOfPrograms')) || [];
 
@@ -780,36 +572,7 @@ function toggleBodyScroll(lock) {
     document.body.style.overflow = lock ? 'hidden' : '';
   }
 
-  
 
-// // Функция для отображения доступных упражнений
-// function renderAvailableExercises() {
-//     sportTrainingInfoProgramsModalAvailableExercisesListAdd.innerHTML = '';
-
-//     arrayOfExercises.forEach(exercise => {
-//         const exerciseElement = document.createElement('div');
-//         exerciseElement.style.backgroundColor = exercise.color;
-//         exerciseElement.style.padding = "10px";
-//         exerciseElement.style.margin = "5px 0";
-//         exerciseElement.style.color = "#000";
-
-//         exerciseElement.innerHTML = `
-//             <strong>${exercise.title}</strong><br>
-//             Описание: ${exercise.description}<br>
-//             Основной класс: ${exercise.primaryClass}<br>
-//             Вторичный класс: ${exercise.secondaryClass}<br>
-//         `;
-
-//         const addButton = document.createElement('button');
-//         addButton.textContent = 'Добавить';
-//         addButton.onclick = function() {
-//             addExerciseToProgram(exercise);
-//         };
-
-//         exerciseElement.appendChild(addButton);
-//         sportTrainingInfoProgramsModalAvailableExercisesListAdd.appendChild(exerciseElement);
-//     });
-// }
 // Функция для отображения доступных упражнений
 function renderAvailableExercises() {
     sportTrainingInfoProgramsModalAvailableExercisesListAdd.innerHTML = '';
@@ -839,14 +602,6 @@ function renderAvailableExercises() {
     });
 }
 
-
-// // Функция добавления упражнения в программу
-// function addExerciseToProgram(exercise) {
-//     if (!selectedExercises.some(e => e.title === exercise.title)) {
-//         selectedExercises.push(exercise);
-//         renderSelectedExercises();
-//     }
-// }
 // Функция добавления упражнения в программу
 function addExerciseToProgram(exercise) {
     // Проверяем, что упражнение еще не добавлено по ссылке на объект
@@ -856,37 +611,6 @@ function addExerciseToProgram(exercise) {
         renderSelectedExercises(); // Обновляем отображение выбранных упражнений
     }
 }
-
-
-// // Функция для отображения добавленных в программу упражнений
-// function renderSelectedExercises() {
-//     sportTrainingInfoProgramsModalAvailableExercisesAdd.innerHTML = '';
-
-//     selectedExercises.forEach(exercise => {
-//         const exerciseElement = document.createElement('div');
-//         exerciseElement.style.backgroundColor = exercise.color;
-//         exerciseElement.style.padding = "10px";
-//         exerciseElement.style.margin = "5px 0";
-//         exerciseElement.style.color = "#000";
-        
-//         exerciseElement.innerHTML = `
-//             <strong>${exercise.title}</strong><br>
-//             Описание: ${exercise.description}<br>
-//             Основной класс: ${exercise.primaryClass}<br>
-//             Вторичный класс: ${exercise.secondaryClass}<br>
-//         `;
-
-//         const removeButton = document.createElement('button');
-//         removeButton.textContent = 'Удалить';
-//         removeButton.onclick = function() {
-//             selectedExercises = selectedExercises.filter(e => e.title !== exercise.title);
-//             renderSelectedExercises();
-//         };
-
-//         exerciseElement.appendChild(removeButton);
-//         sportTrainingInfoProgramsModalAvailableExercisesAdd.appendChild(exerciseElement);
-//     });
-// }
 // Функция для отображения добавленных в программу упражнений
 function renderSelectedExercises() {
     sportTrainingInfoProgramsModalAvailableExercisesAdd.innerHTML = '';
@@ -918,61 +642,6 @@ function renderSelectedExercises() {
         sportTrainingInfoProgramsModalAvailableExercisesAdd.appendChild(exerciseElement);
     });
 }
-
-
-// // Функция для сохранения или редактирования программы
-// sportTrainingInfoProgramsModalButtonSave.onclick = function() {
-//     const programTitle = document.getElementById('sportTrainingInfoProgramsModalTitle').value;
-//     const programColor = document.getElementById('sportTrainingInfoProgramsModalColor').value;
-//     const programOpacity = parseFloat(document.getElementById('sportTrainingInfoProgramsModalOpacity').value);
-
-//     // Проверка на уникальность названия программы
-//     if (arrayOfPrograms.some(program => program.title === programTitle && program !== editingProgram)) {
-//         alert("Программа с таким названием уже существует. Пожалуйста, выберите другое название.");
-//         return;
-//     }
-
-//     const rgbaColor = getRgbaColor(programColor, programOpacity);
-
-//     if (!programTitle) {
-//         alert("Введите название программы.");
-//         return;
-//     }
-
-//     const program = {
-//         title: programTitle,
-//         color: rgbaColor,
-//         exercises: selectedExercises
-//     };
-
-//     if (editingProgram) {
-//         // Обновление существующей программы
-//         const index = arrayOfPrograms.indexOf(editingProgram);
-//         arrayOfPrograms[index] = program; // Заменяем старую программу на новую
-
-//         // Перерисовываем список программ
-//         sportTrainingInfoProgramsList.innerHTML = ''; // Очищаем старый список
-//         loadPrograms(); // Загружаем обновленный список программ
-//     } else {
-//         // Добавление новой программы
-//         arrayOfPrograms.push(program);
-//         addProgramToList(program); // Добавляем новую программу в список
-//     }
-
-//     localStorage.setItem('arrayOfPrograms', JSON.stringify(arrayOfPrograms));
-
-//     clearModalFields(); // Очищаем поля
-
-//     sportTrainingInfoProgramsModalAdd.style.display = 'none';
-//     editingProgram = null; // Сбрасываем редактирование
-// };
-
-
-
-
-
-
-
 
 // Функция для генерации уникального ID длиной 10 символов
 function generateUniqueId() {
@@ -1058,20 +727,16 @@ sportTrainingInfoProgramsModalButtonSave.onclick = function() {
     // Очищаем поля
     clearModalFields(); 
     sportTrainingInfoProgramsModalAdd.style.display = 'none';
+    toggleBodyScroll(false);
 
     // Сбрасываем редактирование для следующей итерации
 
     editingProgram = null; 
 };
-
-
-
-
-
-
-
-
-
+function toggleBodyScroll(lock) {
+    document.body.style.overflow = lock ? 'hidden' : '';
+  }
+  
 
 // Функция для получения цвета в формате rgba
 function getRgbaColor(hex, opacity) {
@@ -1083,56 +748,6 @@ function getRgbaColor(hex, opacity) {
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
 
-// // Функция для добавления программы в список отображаемых программ
-// function addProgramToList(program) {
-
-//     const programItem = document.createElement('div');
-    
-//     programItem.textContent = `${program.title}, Цвет: ${program.color}`;
-//     programItem.style.backgroundColor = program.color;
-//     programItem.style.padding = "10px";
-//     programItem.style.margin = "10px 0";
-//     programItem.style.borderRadius = "5px";
-//     programItem.style.color = "#000";
-//     const exercisesList = document.createElement('div');
-//     exercisesList.style.marginTop = "10px";
-//     program.exercises.forEach(exercise => {
-//         const exerciseElement = document.createElement('div');
-//         exerciseElement.style.backgroundColor = exercise.color;
-//         exerciseElement.style.padding = "5px";
-//         exerciseElement.style.marginTop = "5px";
-//         exerciseElement.style.borderRadius = "3px";
-//         exerciseElement.innerHTML = `
-//             <strong>${exercise.title}</strong><br>
-//             Описание: ${exercise.description}<br>
-//             Основной класс: ${exercise.primaryClass}<br>
-//             Вторичный класс: ${exercise.secondaryClass}
-//         `;
-//         exercisesList.appendChild(exerciseElement);
-//     });
-//     programItem.appendChild(exercisesList);
-//     const editButton = document.createElement('button');
-//     editButton.textContent = 'Редактировать';
-//     editButton.onclick = function() {
-//         editProgram(program); // Функция редактирования программы
-//     };
-//     const deleteButton = document.createElement('button');
-//     deleteButton.textContent = 'Удалить';
-//     deleteButton.onclick = function() {
-//         if (confirm("Вы уверены, что хотите удалить эту программу?")) {
-//             const index = arrayOfPrograms.indexOf(program);
-//             if (index > -1) {
-//                 arrayOfPrograms.splice(index, 1);
-//                 localStorage.setItem('arrayOfPrograms', JSON.stringify(arrayOfPrograms));
-//                 sportTrainingInfoProgramsList.removeChild(programItem);
-//             }
-//         }
-//     };
-//     programItem.appendChild(editButton);
-//     programItem.appendChild(deleteButton);
-//     sportTrainingInfoProgramsList.appendChild(programItem);
-// }
-
 // Функция для добавления программы в список отображаемых программ
 function addProgramToList(program) {
     const programItem = document.createElement('div');
@@ -1143,7 +758,7 @@ function addProgramToList(program) {
     programItem.style.padding = "10px";
     programItem.style.margin = "10px 0";
     programItem.style.borderRadius = "5px";
-    programItem.style.color = "#000";
+    // programItem.style.color = "#000";
 
     const exercisesList = document.createElement('div');
     exercisesList.style.marginTop = "10px";
@@ -1178,7 +793,6 @@ function addProgramToList(program) {
         checkAndUpdateExercises(program, exercisesList);
     }, 100);
 }
-
 // Функция для отображения упражнений
 function updateExercisesDisplay(program, exercisesList) {
     exercisesList.innerHTML = ''; // Очищаем старый список
@@ -1188,7 +802,7 @@ function updateExercisesDisplay(program, exercisesList) {
         exerciseElement.style.padding = "10px";
         exerciseElement.style.margin = "10px 0";
         exerciseElement.style.borderRadius = "5px";
-        exerciseElement.style.color = "#000";
+        // exerciseElement.style.color = "#000";
         
         exerciseElement.innerHTML = `
             ${exercise.primaryClass}
@@ -1199,7 +813,6 @@ function updateExercisesDisplay(program, exercisesList) {
         exercisesList.appendChild(exerciseElement);
     });
 }
-
 // Функция для проверки и обновления упражнений
 function checkAndUpdateExercises(program, exercisesList) {
     const updatedExercises = []; // Новый массив для хранения обновленных упражнений
@@ -1219,18 +832,6 @@ function checkAndUpdateExercises(program, exercisesList) {
     // Обновляем отображение упражнений в интерфейсе
     updateExercisesDisplay(program, exercisesList);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 // Функция для преобразования цвета из rgba в hex
 function rgbaToHex(rgba) {
     const rgbaArray = rgba.match(/\d+/g); // Извлекаем числа из rgba
@@ -1241,7 +842,6 @@ function rgbaToHex(rgba) {
                  ("0" + g.toString(16).toUpperCase()).slice(-2) + 
                  ("0" + b.toString(16).toUpperCase()).slice(-2);
 }
-
 // Функция для редактирования программы
 function editProgram(program) {
     editingProgram = program; // Установка редактируемой программы
@@ -1259,24 +859,19 @@ function editProgram(program) {
     renderAvailableExercises();
 
     sportTrainingInfoProgramsModalAdd.style.display = 'block'; // Показываем модальное окно
+    toggleBodyScroll(true);
 }
-
-
+function toggleBodyScroll(lock) {
+    document.body.style.overflow = lock ? 'hidden' : '';
+  }
 // Функция для очистки полей модального окна
 function clearModalFields() {
     document.getElementById('sportTrainingInfoProgramsModalTitle').value = '';
-    document.getElementById('sportTrainingInfoProgramsModalColor').value = '#FFFFFF';
+    document.getElementById('sportTrainingInfoProgramsModalColor').value = '#1B72E4';
     document.getElementById('sportTrainingInfoProgramsModalOpacity').value = 0.5;
     selectedExercises = []; // Сброс упражнений
     sportTrainingInfoProgramsModalAvailableExercisesAdd.innerHTML = ''; // Очищаем добавленные упражнения
 }
-
-// // Инициализируем список программ при загрузке страницы
-// function loadPrograms() {
-//     arrayOfPrograms.forEach(program => {
-//         addProgramToList(program);
-//     });
-// }
 // Инициализируем список программ при загрузке страницы
 function loadPrograms() {
     // Проверяем, что массив программ существует и не пустой
@@ -1288,8 +883,6 @@ function loadPrograms() {
         console.log("Нет доступных программ для загрузки."); // Сообщение в случае отсутствия программ
     }
 }
-
-
 
 // Загружаем программы из localStorage при инициализации
 loadPrograms();
@@ -1311,6 +904,248 @@ loadPrograms();
 
 
 
+// Календарь
+// Календарь
+// Календарь
+// Календарь
+
+const datesContainer = document.getElementById("datesContainer");
+const monthYear = document.getElementById("monthYear");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const selectMonthBtn = document.getElementById("selectMonthBtn");
+const selectYearBtn = document.getElementById("selectYearBtn");
+
+const monthModal = document.getElementById("monthModal");
+const closeMonthModal = document.getElementById("closeMonthModal");
+const yearModal = document.getElementById("yearModal");
+const closeYearModal = document.getElementById("closeYearModal");
+
+let currentDate = new Date(); // Текущая дата (нужно для определения текущего года и месяца)
+
+
+let sharedArrayWithDates = {}; 
+let selectedDateKey = JSON.parse(localStorage.getItem('selectedDateKey')) || [];
+let selectedDate = JSON.parse(localStorage.getItem('selectedDate')) || [];
+
+// Функция для сохранения в localStorage
+function saveToLocalStorage() {
+    localStorage.setItem("sharedArrayWithDates", JSON.stringify(sharedArrayWithDates));
+    localStorage.setItem('selectedDate', JSON.stringify(selectedDate)); 
+    localStorage.setItem('selectedDateKey', JSON.stringify(selectedDateKey)); 
+}
+
+// Основная функция обработки клика по дате
+function handleDateClick(day, month, year) {
+    console.log("Clicked date:", day, month, year); // Для отладки
+
+    // Сформируем ключи
+    const yearKey = "arrayYear" + year;
+    const monthKey = "arrayMonth" + month;
+    const dayKey = "arrayDay" + day;
+
+    // Очистка массивов перед записью новых значений
+    selectedDate.length = 0; // Очищаем массив selectedDate
+    selectedDateKey.length = 0; // Очищаем массив selectedDateKey
+
+    // Добавим новые данные в массивы
+    selectedDate.push(day, month, year); // Записываем новую дату
+    selectedDateKey.push(yearKey, monthKey, dayKey); // Записываем новые ключи
+
+    // Логируем данные для проверки
+    console.log("Selected Date:", selectedDate);
+    console.log("Selected Date Keys:", selectedDateKey);
+
+    // Проверяем и инициализируем sharedArrayWithDates
+    if (!sharedArrayWithDates[yearKey]) {
+        sharedArrayWithDates[yearKey] = {};
+    }
+    if (!sharedArrayWithDates[yearKey][monthKey]) {
+        sharedArrayWithDates[yearKey][monthKey] = {};
+    }
+    if (!sharedArrayWithDates[yearKey][monthKey][dayKey]) {
+        sharedArrayWithDates[yearKey][monthKey][dayKey] = [];
+    }
+
+    // Сохранение в localStorage
+    saveToLocalStorage();
+}
+
+function renderCalendar() {
+    datesContainer.innerHTML = "";
+    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    const currentDay = new Date();
+
+    monthYear.innerText = `${firstDayOfMonth.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
+
+    // Определяем текущий месяц и год
+    const today = new Date();
+    const month = today.getMonth(); 
+    const year = today.getFullYear(); 
+
+    // Устанавливаем индекс первого дня месяца (0 - воскресенье, 1 - понедельник и т.д.)
+    const firstDayIndex = (firstDayOfMonth.getDay() + 6) % 7; // Преобразуем к понедельнику
+
+    // Получаем количество дней в предыдущем месяце
+    const lastDateOfPrevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+    
+    // Заполняем дни предыдущего месяца
+    for (let i = firstDayIndex; i > 0; i--) {
+        const prevDateDiv = document.createElement("div");
+        prevDateDiv.className = "date previous-month";
+        prevDateDiv.innerText = lastDateOfPrevMonth.getDate() - i + 1;
+        datesContainer.appendChild(prevDateDiv);
+    }
+
+    // Заполняем дни текущего месяца
+    for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+        const dateDiv = document.createElement("div");
+        dateDiv.className = "date";
+        dateDiv.innerText = i;
+
+        // Подсвечиваем текущую дату
+        if (i === currentDay.getDate() && currentDate.getMonth() === currentDay.getMonth() && currentDate.getFullYear() === currentDay.getFullYear()) {
+            dateDiv.classList.add("current");
+        }
+        // Устанавливаем кнопку выбора
+        dateDiv.onclick = () => {
+            const selected = document.querySelector(".selected");
+            // handleDateClick(i);
+            handleDateClick(i, currentDate.getMonth() + 1, currentDate.getFullYear()); // Передаем день, месяц и год
+            if (selected) selected.classList.remove("selected");
+            dateDiv.classList.add("selected");
+            updateSelectedProgramsList();
+        };
+
+        datesContainer.appendChild(dateDiv);
+    }
+}
+
+prevBtn.onclick = () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+};
+nextBtn.onclick = () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+};
+selectMonthBtn.onclick = () => {
+    monthModal.style.display = "block";
+    highlightCurrentMonth();
+};
+selectYearBtn.onclick = () => {
+    yearModal.style.display = "block";
+    highlightCurrentYear();
+};
+closeMonthModal.onclick = () => {
+    monthModal.style.display = "none";
+};
+closeYearModal.onclick = () => {
+    yearModal.style.display = "none";
+};
+document.querySelectorAll(".month-btn").forEach(button => {
+    button.onclick = () => {
+
+        const month = button.getAttribute("data-month");
+        currentDate.setMonth(month);
+        monthModal.style.display = "none";
+        renderCalendar();
+    };
+});
+
+let displayedYear = currentDate.getFullYear(); // Переменная для отслеживания отображаемого года
+function renderYearButtons() {
+    const yearsContainer = document.getElementById("yearsContainer");
+    yearsContainer.innerHTML = ""; // Очищаем и перезаполняем контейнер
+    const currentYear = displayedYear; // Отображаемый год для кнопок
+
+    // Обновляем отображение года в заголовке
+    document.getElementById("yearDisplay").innerText = currentYear;
+
+    for (let i = currentYear - 5; i <= currentYear + 5; i++) {
+        const yearBtn = document.createElement("button");
+        yearBtn.className = "year-btn";
+        yearBtn.setAttribute("data-year", i);
+        yearBtn.innerText = i;
+
+        // Подсвечиваем текущий год
+        if (i === currentDate.getFullYear()) {
+            yearBtn.classList.add("current-year");
+        }
+
+        // Обработчик для кнопки года
+        yearBtn.onclick = () => {
+            currentDate.setFullYear(i);
+            yearModal.style.display = "none"; // Закрываем модальное окно
+            renderCalendar(); // Обновляем календарь
+        };
+
+        yearsContainer.appendChild(yearBtn); // Добавляем кнопку в контейнер
+    }
+}
+
+// Обработчики для стрелочек
+document.getElementById("prevYearBtn").onclick = () => {
+    displayedYear -= 1; // Уменьшаем отображаемый год
+    renderYearButtons(); // Обновляем кнопки годов
+};
+
+document.getElementById("nextYearBtn").onclick = () => {
+    displayedYear += 1; // Увеличиваем отображаемый год
+    renderYearButtons(); // Обновляем кнопки годов
+};
+
+// Изменение вызова функции
+selectYearBtn.onclick = () => {
+    yearModal.style.display = "block"; // Показываем модальное окно
+    displayedYear = currentDate.getFullYear(); // Сбрасываем на текущий год
+    renderYearButtons(); // Генерируем кнопки годов
+};
+
+// Остальной код остается тем же...
+
+function highlightCurrentMonth() {
+    const currentMonth = new Date().getMonth();
+    document.querySelectorAll(".month-btn").forEach(button => {
+        button.classList.remove("current-month");
+        if (button.getAttribute("data-month") == currentMonth) {
+            button.classList.add("current-month");
+        }
+    });
+}
+
+function highlightCurrentYear() {
+    const currentYear = new Date().getFullYear();
+    yearButtons.forEach(button => {
+        button.classList.remove("current-year");
+        if (button.getAttribute("data-year") == currentYear) {
+            button.classList.add("current-year");
+        }
+    });
+}
+
+window.onclick = (event) => {
+    if (event.target === monthModal || event.target === yearModal) {
+        monthModal.style.display = "none";
+        yearModal.style.display = "none";
+    }
+};
+// При загрузке страницы, проверяем наличие данных в localStorage
+window.onload = () => {
+    const storedDates = localStorage.getItem("sharedArrayWithDates");
+    if (storedDates) {
+        sharedArrayWithDates = JSON.parse(storedDates);
+    }
+
+    // Запускаем календарь
+    renderCalendar();
+};
+
+// Календарь
+// Календарь
+// Календарь
+// Календарь
 
 
 
@@ -1324,6 +1159,245 @@ loadPrograms();
 
 
 
+// Тренировки в календаре
+// Тренировки в календаре
+// Тренировки в календаре
+// Тренировки в календаре
+
+    const sportCalendarInfoTrainingButtonAdd = document.getElementById('sportCalendarInfoTrainingButtonAdd');
+    const sportCalendarInfoTrainingModalTrainingAdd = document.getElementById('sportCalendarInfoTrainingModalTrainingAdd');
+    const sportCalendarInfoTrainingModalTrainingInfo = document.getElementById('sportCalendarInfoTrainingModalTrainingInfo');
+    const sportCalendarInfoTrainingList = document.getElementById('sportCalendarInfoTrainingList');
+    const sportCalendarInfoTrainingModalTrainingButtonAdd = document.getElementById('sportCalendarInfoTrainingList');
+    
+    // Открытие модального окна
+    sportCalendarInfoTrainingButtonAdd.onclick = function() {
+        // Проверяем, есть ли выбранные даты
+        const selectedDateElement = document.querySelector('#datesContainer .date.selected'); // Поиск элемента с классом "date selected"
+
+        if (selectedDateElement) {
+            // Если элемент найден, показываем модальное окно
+            sportCalendarInfoTrainingModalTrainingAdd.style.display = 'flex'; // Показываем модальное окно
+            displayAvailablePrograms(); // Отображение доступных программ
+        } else {
+            // Иначе показываем ошибку
+            alert('Пожалуйста, выберите дату.'); // Всплывающее сообщение об ошибке
+        }
+    };
+
+    // Закрытие модального окна
+    document.querySelector('.modalCloseAddTraining').onclick = function() {
+        sportCalendarInfoTrainingModalTrainingAdd.style.display = 'none'; // Закрываем модальное окно
+    };
+ 
+// Для хранения выбранных программ
+let selectedPrograms = [];
+
+// Функция для отображения доступных программ
+function displayAvailablePrograms() {
+    sportCalendarInfoTrainingModalTrainingInfo.innerHTML = ''; // Очищаем контейнер
+
+    arrayOfPrograms.forEach(program => {
+        const programItem = document.createElement('div');
+        programItem.textContent = `Тренировка: ${program.title}, ID: ${program.id}, Цвет: ${program.color}`;
+        programItem.style.backgroundColor = program.color;
+        programItem.style.padding = "10px";
+        programItem.style.margin = "5px 0";
+
+        const description = document.createElement('div');
+        description.textContent = `Описание: ${program.description}`;
+        programItem.appendChild(description); // Добавляем описание
+
+        const primaryClass = document.createElement('div');
+        primaryClass.textContent = `Основной класс: ${program.primaryClass}`;
+        programItem.appendChild(primaryClass);
+
+        const secondaryClass = document.createElement('div');
+        secondaryClass.textContent = `Вторичный класс: ${program.secondaryClass}`;
+        programItem.appendChild(secondaryClass);
+
+        const selectButton = document.createElement('button');
+selectButton.textContent = 'Выбрать';
+selectButton.className = "sportCalendarInfoTrainingModalTrainingSelectClass"; // Исправлена ошибка в классе
+
+selectButton.onclick = function() {
+    // Проверяем, есть ли программа уже в выбранных
+    if (!selectedPrograms.some(p => p.id === program.id)) {
+        selectedPrograms.push(program); // Добавляем программу в массив выбранных
+        selectButton.style.backgroundColor = 'lightgreen'; // Изменяем стиль для индикации выбора
+    } else {
+        // Программа уже выбрана, убираем выделение и удаляем из массива
+        selectedPrograms = selectedPrograms.filter(p => p.id !== program.id); // Удаляем программу из массива
+        selectButton.style.backgroundColor = ''; // Сбрасываем стиль кнопки
+    }
+};
+
+        // Отображаем упражнения под программой
+        const exercisesList = document.createElement('div');
+        program.exercises.forEach(ex => {
+            const exerciseItem = document.createElement('div');
+            exerciseItem.textContent = `Упражнение: ${ex.title}, ID: ${ex.id}, Цвет: ${ex.color}`;
+            exerciseItem.style.backgroundColor = ex.color;
+
+            const exerciseDescription = document.createElement('div');
+            exerciseDescription.textContent = `Описание: ${ex.description}`;
+            exerciseItem.appendChild(exerciseDescription);
+
+            const primaryClass = document.createElement('div');
+            primaryClass.textContent = `Основной класс: ${ex.primaryClass}`;
+            exerciseItem.appendChild(primaryClass);
+
+            const secondaryClass = document.createElement('div');
+            secondaryClass.textContent = `Вторичный класс: ${ex.secondaryClass}`;
+            exerciseItem.appendChild(secondaryClass);
+
+            exercisesList.appendChild(exerciseItem);
+        });
+
+        programItem.appendChild(selectButton);
+        programItem.appendChild(exercisesList);
+
+        sportCalendarInfoTrainingModalTrainingInfo.appendChild(programItem);
+    });
+}
+
+// Кнопка добавления программ
+document.getElementById('sportCalendarInfoTrainingModalTrainingButtonAdd').addEventListener('click', function() {
+    selectedPrograms.forEach(program => {
+        addProgramToSelectedList(program); // Добавляем каждую выбранную программу
+    });
+    updateSelectedProgramsList(); // Обновляем список выбранных программ
+    selectedPrograms = []; // Очищаем массив после добавления
+});
+
+// Функция для добавления программы в список выбранных
+function addProgramToSelectedList(program) {
+    // Проверяем, существует ли массив selectedDateKey
+    const dateKeys = selectedDateKey;
+
+    if (dateKeys.length !== 3) {
+        console.error('selectedDateKey должен содержать 3 значения.');
+        return;
+    }
+
+    const [yearKey, monthKey, dayKey] = dateKeys;
+
+    sharedArrayWithDates[yearKey] = sharedArrayWithDates[yearKey] || {};
+    sharedArrayWithDates[yearKey][monthKey] = sharedArrayWithDates[yearKey][monthKey] || {};
+    sharedArrayWithDates[yearKey][monthKey][dayKey] = sharedArrayWithDates[yearKey][monthKey][dayKey] || [];
+
+    const dayArray = sharedArrayWithDates[yearKey][monthKey][dayKey];
+    if (!dayArray.some(p => p.id === program.id)) {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        
+        // Добавляем дату к названию программы
+        program.title += ` (Добавлено: ${formattedDate})`; // Изменяем название программы
+        
+        dayArray.push(program);
+        // alert(`Программа добавлена для этой даты: ${formattedDate}`);
+    } else {
+        alert('Программа уже добавлена для этой даты.');
+    }
+
+    localStorage.setItem('sharedArrayWithDates', JSON.stringify(sharedArrayWithDates));
+    updateSelectedProgramsList(); 
+}
+
+// Обновление списка выбранных программ
+function updateSelectedProgramsList() {
+    sportCalendarInfoTrainingList.innerHTML = ''; // Очищаем список перед обновлением
+    
+    const dateKeys = selectedDateKey;
+    if (dateKeys.length !== 3) {
+        console.error('Должно быть 3 значения для выбранной даты.');
+        return;
+    }
+
+    const [yearKey, monthKey, dayKey] = dateKeys;
+
+    const dayPrograms = sharedArrayWithDates[yearKey]?.[monthKey]?.[dayKey] || [];
+
+    dayPrograms.forEach(program => {
+        const programItem = document.createElement('div');
+        programItem.textContent = program.title; // Название добавленной программы (уже с датой)
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Удалить';
+        deleteButton.id = "sportCalendarInfoTrainingListButtonDelete";
+        deleteButton.onclick = function() {
+            removeProgramFromSelectedList(program.id);
+            updateSelectedProgramsList(); 
+        };
+
+        const exercisesList = document.createElement('div');
+        program.exercises.forEach(ex => {
+            const exerciseItem = document.createElement('div');
+            exerciseItem.textContent = `Упражнение: ${ex.title}, ID: ${ex.id}`; // Указываем ID и название
+
+            const doneButton = document.createElement('button');
+            doneButton.textContent = 'Выполнить';
+            doneButton.id = "sportCalendarInfoTrainingListExercisesDone"; 
+            doneButton.onclick = function() {
+                alert(`Выполнено: ${ex.title}`); 
+            };
+
+            exerciseItem.appendChild(doneButton);
+            exercisesList.appendChild(exerciseItem);
+        });
+
+        programItem.appendChild(deleteButton);
+        programItem.appendChild(exercisesList); 
+
+        sportCalendarInfoTrainingList.appendChild(programItem); 
+    });
+}
+
+// Удаление программы из массива по ключу dayKey
+function removeProgramFromSelectedList(programId) {
+    // Извлекаем ключи даты
+    const dateKeys = selectedDateKey;
+    if (dateKeys.length !== 3) {
+        console.error('Должно быть 3 значения для выбранной даты.');
+        return;
+    }
+
+    const [yearKey, monthKey, dayKey] = dateKeys;
+
+    // Получаем массив программ для выбранной даты
+    const dayPrograms = sharedArrayWithDates[yearKey]?.[monthKey]?.[dayKey];
+
+    if (!dayPrograms) {
+        console.log('Нет программ для удаления.');
+        return;
+    }
+
+    // Находим индекс программы по programId
+    const index = dayPrograms.findIndex(program => program.id === programId);
+    
+    if (index > -1) {
+        dayPrograms.splice(index, 1); // Удаляем программу из массива
+        
+        // Сохраняем обновленный sharedArrayWithDates в localStorage
+        localStorage.setItem('sharedArrayWithDates', JSON.stringify(sharedArrayWithDates));
+
+        // Обновляем отображение
+        updateSelectedProgramsList();
+    } else {
+        console.log('Программа не найдена для удаления.');
+    }
+}
+
+    // Добавление выбранных программ из модального окна в список
+    document.getElementById('sportCalendarInfoTrainingModalTrainingButtonAdd').onclick = function() {
+        // Закрыть модальное окно
+        sportCalendarInfoTrainingModalTrainingAdd.style.display = 'none';
+    };
+    
+// Тренировки в календаре
+// Тренировки в календаре
+// Тренировки в календаре
+// Тренировки в календаре
 
 
 
@@ -1336,6 +1410,10 @@ loadPrograms();
 
 
 
+// Выполнение упражнения
+// Выполнение упражнения
+// Выполнение упражнения
+// Выполнение упражнения
 
 
 
@@ -1343,5 +1421,10 @@ loadPrograms();
 
 
 
-// Изначально показываем программы в тренировках
-showTrainingSubsection(sportTrainingInfoProgramsInfo);
+
+
+
+// Выполнение упражнения
+// Выполнение упражнения
+// Выполнение упражнения
+// Выполнение упражнения

@@ -11,37 +11,95 @@
 <body>
     <div class="bodyAllWrapperContent"> <!-- Оболочка, для всего на странице в ней весь контент -->
         <div class="bodyButtonWrap"> <!-- Оболочка, для кнопок Календарь Тренировки Статистика -->
-            <div class="version">v1.7</div> <!-- отображает иейрархию версий -->
+            <div class="version">v1.11</div> <!-- отображает иейрархию версий -->
             <button class="bodyButton" id="sportCalendar">Календарь</button> <!-- Кнопка на главном экране открывает в sportInfoList контейнер sportCalendarInfo -->
             <button class="bodyButton" id="sportTraining">Тренировки</button> <!-- Кнопка на главном экране открывает в sportInfoList контейнер sportTrainingInfo -->
             <button class="bodyButton" id="sportStatistics">Статистика</button> <!-- Кнопка на главном экране открывает в sportInfoList контейнер sportTrainingInfo -->
         </div>
         
 
-
-
         <div class="AllWrapperContent" id="sportInfoList"> <!-- Оболочка, главная в ней отображается все происходящее на странице по нажатию Календарь Тренировки Статистика -->
     
-
-
 
             <div class="WrapperContentSportCalendar" id="sportCalendarInfo"> <!-- Оболочка главная sportCalendarInfo Календарь -->
                 <div id="sportCalendarInfoCalendar"> <!-- Оболочка Календарь -->
                     <!-- Тут будет Календарь -->
+                    <div class="sportCalendarInfoCalendarWrapper">
+                        <div class="calendar">
+                            <div class="header">
+                                <button id="prevBtn">&lt;</button>
+                                <h2 id="monthYear"></h2>
+                                <button id="nextBtn">&gt;</button>
+                            </div>
+                            <div class="view-toggle">
+                                <button id="selectMonthBtn">Выбрать месяц</button>
+                                <button id="selectYearBtn">Выбрать год</button>
+                            </div>
+                            <div class="days">
+                                <div class="day-header">Пн</div>
+                                <div class="day-header">Вт</div>
+                                <div class="day-header">Ср</div>
+                                <div class="day-header">Чт</div>
+                                <div class="day-header">Пт</div>
+                                <div class="day-header">Сб</div>
+                                <div class="day-header">Вс</div>
+                            </div>
+                            <div class="dates" id="datesContainer"></div>
+                        </div>
+                    
+                        <!-- Модальное окно для выбора месяца -->
+                        <div id="monthModal" class="modal">
+                            <div class="modal-content">
+                                <span id="closeMonthModal" class="close">&times;</span>
+                                <h3>Выберите месяц</h3>
+                                <div class="months">
+                                    <button class="month-btn" data-month="0">Январь</button>
+                                    <button class="month-btn" data-month="1">Февраль</button>
+                                    <button class="month-btn" data-month="2">Март</button>
+                                    <button class="month-btn" data-month="3">Апрель</button>
+                                    <button class="month-btn" data-month="4">Май</button>
+                                    <button class="month-btn" data-month="5">Июнь</button>
+                                    <button class="month-btn" data-month="6">Июль</button>
+                                    <button class="month-btn" data-month="7">Август</button>
+                                    <button class="month-btn" data-month="8">Сентябрь</button>
+                                    <button class="month-btn" data-month="9">Октябрь</button>
+                                    <button class="month-btn" data-month="10">Ноябрь</button>
+                                    <button class="month-btn" data-month="11">Декабрь</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Модальное окно для выбора года -->
+                        <div id="yearModal" class="modal">
+                            <div class="modal-content">
+                                <span id="closeYearModal" class="close">&times;</span>
+                                <h3>Выберите год</h3>
+                                <div class="year-nav">
+                                    <button id="prevYearBtn">&lt;</button>
+                                    <span id="yearDisplay"></span> <!-- Отображение текущего года -->
+                                    <button id="nextYearBtn">&gt;</button>
+                                </div>
+                                <div class="years" id="yearsContainer"></div> <!-- Контейнер для динамических кнопок -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Тут будет Календарь -->
                 </div>
+            
 
                 <div id="sportCalendarInfoTraining"> <!-- Оболочка главная sportCalendarInfoTraining тренировки -->
                     <button id="sportCalendarInfoTrainingButtonAdd">Добавить тренировку</button> <!-- Кнопка по нажатию открывает модальное окно с доступными программами -->
                     <div id="sportCalendarInfoTrainingList"></div> <!-- Контейнер для отображения добавленных программ -->
                     
-
                     <!-- модальное окно с добавлением доступных программ -->
                     <div id="sportCalendarInfoTrainingModalTrainingAdd" class="modalOpenAddTraining">
-                        <span class="modalCloseAddTraining">Закрыть</span> <!-- закрывает модальное окно -->
-                        <h2>Доступные программы</h2> <!-- Заголовок -->
-                        <input type="text" id="sportCalendarInfoTrainingModalTrainingSearch" placeholder="Поиск программы" /> <!-- поиск по доступным программам -->
-                        <div id="sportCalendarInfoTrainingModalTrainingInfo"></div> <!-- Контейнер для отображения доступных программ -->
-                        <button id="sportCalendarInfoTrainingModalTrainingButtonAdd">Добавить программу</button> <!-- Кнопка по нажатию добавляет выбранные программы в sportCalendarInfoTrainingList -->
+                        <div class="sportCalendarInfoTrainingModalTrainingList">
+                            <span class="modalCloseAddTraining">Закрыть</span> <!-- закрывает модальное окно -->
+                            <h2>Доступные программы</h2> <!-- Заголовок -->
+                            <input type="text" id="sportCalendarInfoTrainingModalTrainingSearch" placeholder="Поиск программы" /> <!-- поиск по доступным программам -->
+                            <div id="sportCalendarInfoTrainingModalTrainingInfo"></div> <!-- Контейнер для отображения доступных программ -->
+                            <button id="sportCalendarInfoTrainingModalTrainingButtonAdd">Добавить программу</button> <!-- Кнопка по нажатию добавляет выбранные программы в sportCalendarInfoTrainingList -->
+                        </div>
                     </div>
 
                     <!-- модальное окно добавление подхода к упражнению -->
@@ -57,28 +115,10 @@
                             <input type="text" id="sportCalendarInfoTrainingModalAddApproachInfoStorySearch" placeholder="Поиск повторения" /> <!-- поиск по истории выполнения упражнения -->
                             <div id="sportCalendarInfoTrainingModalAddApproachInfoStory"></div> <!-- Контейнер для отображения истории выполнения упражнения -->
                         </div>
-                        
-
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 </div>
             </div>
-    
-    
 
 
             <div class="WrapperContentSportTraining" id="sportTrainingInfo"> <!-- Оболочка главная sportTrainingInfo Тренировки -->
@@ -198,6 +238,7 @@
 
                 </div> 
             </div>
+
         </div>
     </div>
     

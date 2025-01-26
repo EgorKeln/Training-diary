@@ -2,6 +2,7 @@ body {
     background-image: url(./fon/fon.png);
     font-family: "JetBrains Mono",monospace;
     color: #36395A;
+
 }
 .version {
     position: fixed;
@@ -113,20 +114,20 @@ button {
 /* Оболочка, для всего на странице в ней весь контент */
 .bodyAllWrapperContent {
     background-color: transparent;
-    /* border:1px solid red; */
+    /* border:3px solid rgb(255, 238, 0); */
 }
 /* Оболочка, для кнопок Календарь Тренировки Статистика */
 .bodyButtonWrap {
     background-color: transparent;
     padding: 0;
     margin: 0;
-    /* border:1px solid red; */
+    /* border:3px solid rgb(51, 255, 0); */
 }
 /* главная оболочка, в ней отображается все происходящее на странице по нажатию Календарь Тренировки Статистика */
 .AllWrapperContent {
     /* background-color: white; */
     background-color: transparent;
-    /* border:1px solid red; */
+    /* border:3px solid rgb(0, 68, 255); */
 }
 
 /* ========================================== НАЧАЛО раздел Календарь ========================================== */
@@ -135,11 +136,218 @@ button {
 /* Скрываем раздел Calendar по умолчанию */
 .WrapperContentSportCalendar {
     display: none; 
+    /* border: 3px solid rgb(0, 204, 255); */
+    /* margin: 3px; */
 }
+
+.sportCalendarInfoCalendarWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* border: 3px solid red; */
+    /* margin: 3px; */
+}
+.calendar {
+    background: transparent;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* padding: 20px; */
+    width: 1150px;
+    /* border: 3px solid red; */
+    /* margin: 3px; */
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-toggle {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-top: 10px;
+}
+
+.day-header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.date {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.date:hover {
+    background-color: #e0e0e0;
+}
+
+.selected {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.current {
+    background-color: #ffcc00;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.months, .years {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.month-btn, .year-btn {
+    background: #3f51b5;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.month-btn:hover, .year-btn:hover {
+    background: #5c6bc0;
+}
+
+.current-year {
+    background: #ffcc00 !important; /* Подсветка текущего года */
+}
+
+.current-month {
+    background: #ffcc00; /* Подсветка текущего месяца */
+}
+
 
 /* ========================================== КОНЕЦ раздел Календарь ========================================== */
 /* ========================================== КОНЕЦ раздел Календарь ========================================== */
 /* ========================================== КОНЕЦ раздел Календарь ========================================== */
+
+
+/* ===================================== НАЧАЛО раздел Программы календаря ==================================== */
+/* ===================================== НАЧАЛО раздел Программы календаря ==================================== */
+/* ===================================== НАЧАЛО раздел Программы календаря ==================================== */
+
+/* ============================ модальное окно добавления Программы календаря */
+.modalOpenAddTraining {
+    display: none; /* Скрываем по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    z-index: 1000; /* Выше других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    /* background-color: rgba(0, 0, 0, 0.7); Затемнение фона */
+    background-image: url(./fon/fon.png);
+    /* border:3px solid red; */
+}
+.sportCalendarInfoTrainingModalTrainingList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute; /* Позиционирование по центру */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем модальное окно */
+    border-radius: 5px; 
+    padding: 0 10px 10px 10px; 
+    width: 100%; 
+    height: 100%;
+    /* border:3px solid red; */
+}
+
+/* ====================================== КОНЕЦ раздел Программы календаря ==================================== */
+/* ====================================== КОНЕЦ раздел Программы календаря ==================================== */
+/* ====================================== КОНЕЦ раздел Программы календаря ==================================== */
+
+
+/* ========================= НАЧАЛО раздел подходы в упражнениях в программах календаря ======================== */
+/* ========================= НАЧАЛО раздел подходы в упражнениях в программах календаря ======================== */
+/* ========================= НАЧАЛО раздел подходы в упражнениях в программах календаря ======================== */
+
+/* ============================ модальное окно добавления в упражнениях пдохода */
+.modalOpenExerciseBeingPerformed {
+    display: none; /* Скрываем по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    z-index: 1000; /* Выше других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    /* background-color: rgba(0, 0, 0, 0.7); Затемнение фона */
+    background-image: url(./fon/fon.png);
+    /* border:3px solid red; */
+}
+.sportCalendarInfoTrainingModalAddApproachList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute; /* Позиционирование по центру */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем модальное окно */
+    border-radius: 5px; 
+    padding: 0 10px 10px 10px; 
+    width: 100%; 
+    height: 100%;
+    /* border:3px solid red; */
+}
+
+/* ========================== КОНЕЦ раздел подходы в упражнениях в программах календаря ======================== */
+/* ========================== КОНЕЦ раздел подходы в упражнениях в программах календаря ======================== */
+/* ========================== КОНЕЦ раздел подходы в упражнениях в программах календаря ======================== */
 
 
 /* ========================================== НАЧАЛО раздел Тренировки ========================================== */
@@ -557,7 +765,7 @@ button {
 /* ============================ модальное окно добавления программ  */
 .modalOpenAddPrograms {
     display: none; /* Скрываем по умолчанию */
-    /* position: fixed; Фиксированное положение */
+    position: fixed; /* Фиксированное положение */
     z-index: 1000; /* Выше других элементов */
     left: 0;
     top: 0;
